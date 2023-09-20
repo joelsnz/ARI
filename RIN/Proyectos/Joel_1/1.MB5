@@ -8,7 +8,7 @@
 8 '-----------------------------------------------------------------
 9 'Definición de variables
 10 DEF IO S1 = BIT, 3 'Definición del pulsador de marcha como el bit 3
-11 DEF IO L1 = BIT, 0 'Definición del indicador luminoso del pulsador de marcha como el bit 0
+11 DEF IO L1 = BIT, 2 'Definición del indicador luminoso del pulsador de marcha como el bit 0
 12 '-----------------------------------------------------------------
 13 'Programa
 14 '-----------------------------------------------------------------

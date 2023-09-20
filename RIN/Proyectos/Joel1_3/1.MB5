@@ -1,0 +1,15 @@
+1 def io S1 = BIT, 3 'Pulsador de marcha (NA)
+2 def io L1 = BIT, 0 'Indicador luminoso pulsador de marcha
+
+3 *Inicio 'Inicio del bucle principal
+
+4 'Encender el piloto al pulsar marcha
+5 '3 segundos después se apaga
+6 if S1 = 1 then
+7 	L1 = 1
+8 	dly 3 
+9 	L1 = 0
+10 endif
+
+11 goto *Inicio 'Volver al inicio
+12 end

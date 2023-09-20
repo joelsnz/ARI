@@ -1,0 +1,17 @@
+1 def io S1 = BIT, 3 'Pulsador de marcha (NA)
+2 def io S2 = BIT, 4 'Pulsador de paro (NC)
+3 def io L1 = BIT, 0 'Indicador luminoso pulsador de marcha
+
+4 *Inicio 'Inicio del bucle principal
+
+5 'Encender el piloto al pulsar marcha
+6 'Apagar el piloto al pulsar paro
+7 if S1 = 1 then
+8 	L1 = 1
+9 endif
+10 if S2 = 0 then
+11 	L1 = 0
+12 endif
+
+13 goto *Inicio 'Volver al inicio
+14 end

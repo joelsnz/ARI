@@ -1,0 +1,32 @@
+1 def IO L1 = bit, 3 'Pulsador Marcha
+2 def IO L2 = bit, 4 'Pulsador Paro
+3 def IO Q1 = bit, 2 'Piloto Q1
+4 def IO Q2 = bit, 3 'Piloto Q2
+5 def INTE state 'Variable interna
+
+6 *Inicio 'Inicio bucle inicial
+
+7 'Si se pulsa Marcha
+8 if L1 = 1 then
+9 	'Si Q1 está encendida, apagarla y encender Q2
+10 	'Si Q2 está encendida, apagarla y encender Q1
+11 	if state = 0 then
+12 		state = 1
+13 		Q1 = 1
+14 		Q2 = 0
+15 		dly 0.25
+16 	else
+17 		state = 0
+18 		Q1 = 0
+19 		Q2 = 1
+20 		dly 0.25
+21 	endif
+22 endif
+23 'Si se pulsa paro apagarlo todo
+24 if L2 = 0 then
+25 	state = 0
+26 	Q1 = 0
+27 	Q2 = 0
+28 endif
+29 goto *Inicio 'Volver a la marca Inicio
+30 end

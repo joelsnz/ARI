@@ -1,10 +1,10 @@
-1 def io PM = bit, 8  'Pulsador Marcha
-2 def io PP = bit, 0  'Pulsador Paro
-3 def io B1 = bit, 3  'Detector M1 dentro
-4 def io B2 = bit, 4  'Detector M1 fuera
+1 def io PM = bit, 3  'Pulsador Marcha
+2 def io PP = bit, 4  'Pulsador Paro
+3 def io B1 = bit, 8  'Detector M1 dentro
+4 def io B2 = bit, 9  'Detector M1 fuera
 5 def io M1 = bit, 8  'Cilindro M1
-6 def io Q1 = bit, 10 'Piloto Q1
-7 def inter cicles
+6 def io Q1 = bit, 2 'Piloto Q1
+7 def inte cicles
 
 8 *Inicio
 

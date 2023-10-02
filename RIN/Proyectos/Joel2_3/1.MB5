@@ -1,0 +1,22 @@
+1 def IO L1 = bit, 3 'Pulsador Marcha
+2 def IO Q1 = bit, 2 'Piloto Q1
+3 def inte contador 'Variable de contaje
+
+4 *Inicio
+5 contador = 0
+6 'Bloquear el programa mientras no se pulse L1
+7 while L1 = 0
+8 wend
+
+9 'Repetir 5 veces
+10 while contador < 5
+11 'Encender Q1 2 segundos y apagarlo 1 segundo
+12 	Q1 = 1
+13 	dly 2
+14 	Q1 = 0
+15 	dly 1
+16 	contador = contador + 1
+17 wend
+
+18 goto *Inicio 'Volver al inicio del programa
+19 end

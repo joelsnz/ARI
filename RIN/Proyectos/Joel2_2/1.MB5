@@ -1,0 +1,31 @@
+1 def io PM = bit, 3 'Pulsador Marcha
+2 def io PP = bit, 4 'Pulsador Paro
+3 def io L1 = bit, 0 'Piloto PM
+4 def inte cicles 'Contaje de ciclos
+
+5 *Inicio
+
+6 'Repetir solo 4 veces
+7 for cicles = 1 to 4 step 1
+8 	*inicioFor
+9 	'Si se pulsa marcha, encender L1 durante 3 segundos
+10 	'Después, apagarlo
+11 	if PM = 1 then
+12 		L1 = 1
+13 		dly 3
+14 		L1 = 0
+15 	'Si no se pulsa marcha, volver a la primera línea del FOR
+16 	else
+17 		goto *inicioFor
+18 	endif
+19 next cicles
+
+20 *inicioParo
+21 'Si se pulsa paro, volver al inicio del programa
+22 if PP = 0 then
+23 	goto *Inicio
+24 'Si no se pulsa, esperar a que se pulse paro
+25 else
+26 	goto *InicioParo
+27 endif
+28 end

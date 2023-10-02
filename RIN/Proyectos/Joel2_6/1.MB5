@@ -1,0 +1,35 @@
+1 def io PM = bit, 8  'Pulsador Marcha
+2 def io PP = bit, 9  'Pulsador Paro
+3 def io B1 = bit, 3  'Detector M1 dentro
+4 def io B2 = bit, 4  'Detector M1 fuera
+5 def io M1 = bit, 8  'Cilindro M1
+6 def io Q1 = bit, 10 'Piloto Q1
+7 def inter cicles
+
+8 *Inicio
+
+9 'Apagar piloto Q1 y retraer M1
+10 cicles = 0
+11 Q1 = 0
+12 M1 = 0
+13 'Bloquear el programa hasta que M1 est? completamente
+14 'retraido y se pulse marcha
+15 while B1 = 0 or PM = 0
+16 wend
+17 'Extender y retraer M1 3 veces
+18 while cicles < 3
+19 	M1 = 1
+20 	while B2 = 0
+21  	wend
+22  	M1 = 0
+23  	while B1= 0
+24  	wend
+25 	cicles = cicles + 1
+26 wend
+27 'Encender Q1 indicando que ya ha terminado el ciclo
+28 Q1 = 1
+29 'Bloquear el programa hasta que se pulse paro
+30 while B1 = 1
+31 wend
+32 goto *Inicio
+33 end

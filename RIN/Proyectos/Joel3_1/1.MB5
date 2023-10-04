@@ -1,0 +1,18 @@
+1 def pos P99
+
+2 def io S1 = bit, 3 'Pulsador marcha
+3 def io S2 = bit, 4 'Pulsador paro
+4 def io L1 = bit, 0 'Indicador luminoso Q1
+
+5 spd 30
+6 ovrd 30
+
+7 *Inicio
+
+8 while S1 = 0
+9 wend
+10 L1 = 1
+11 mov P99
+12 L0 = 0
+13 goto *Inicio
+14 end

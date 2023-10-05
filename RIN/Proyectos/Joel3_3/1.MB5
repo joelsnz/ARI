@@ -1,0 +1,41 @@
+1 def pos P99
+2 def pos P100
+3 def pos P101
+4 def pos VecZ30
+5 def pos VecZ140
+
+6 VecZ30 = (0,0,30,0,0,0)
+7 VecZ140 = (0,-100,140,0,0,0)
+
+8 def io S1 = bit, 3 'Pulsador marcha
+9 def io S2 = bit, 4 'Pulsador paro
+10 def io L1 = bit, 2 'Indicador luminoso Q1
+11 def io B1 = bit, 6 'Detector pieza rampa entrada
+
+12 spd 30
+13 ovrd 30
+
+14 *Inicio
+
+15 while S1 = 0 or B1 = 0
+16 wend
+17 L1 = 1
+18 mov P99
+19 hopen 1
+20 mov P100 + VecZ30
+21 mvs P100
+22 hclose 1
+23 dly 0.5
+24 mvs P100 + VecZ30
+25 mov P99
+26 dly 1
+27 mov P101 + VecZ140
+28 mov P101 + VecZ30
+29 mvs P101
+30 hopen 1
+31 dly 0.5
+32 mov P101 + VecZ140
+33 mov P99
+34 L1 = 0
+35 goto *Inicio
+36 end

@@ -1,37 +1,39 @@
 1 def pos P99
 2 def pos P100
-3 def pos VecZ30
+3 def pos P101
+4 def pos P102
+5 def pos VecZ30
 
-4 VecZ30 = (0,0,30,0,0,0)
+6 VecZ30 = (0,0,30,0,0,0)
 
-5 def io S1 = bit, 3 'Pulsador marcha
-6 def io S2 = bit, 4 'Pulsador paro
-7 def io L1 = bit, 0 'Indicador luminoso Q1
+7 def io S1 = bit, 8 'Pulsador marcha
+8 def io S2 = bit, 9 'Pulsador paro
+9 def io L1 = bit, 10 'Indicador luminoso Q1
 
-8 spd 30
-9 ovrd 30
+10 spd 30
+11 ovrd 30
 
-10 *Inicio
+12 *Inicio
 
-11 while S1 = 0
-12 wend
-13 L1 = 1
-14 mov P99
-15 hopen 1
-16 dly 0.5
-17 mov P100 + VecZ30
-18 mvs P100
-19 hclose 1
-20 dly 0.5
-21 mvs P100 + VecZ30
-22 mov P99
-23 dly 1
-24 mov P100 + VecZ30
-25 mov P100
-26 hopen 1
-27 dly 0.5
-28 mov P100 + VecZ30
-29 mov P99
-30 L1 = 0
-31 goto *Inicio
-32 end
+13 while S1 = 0
+14 wend
+15 L1 = 1
+16 mov P99
+17 hopen 1
+18 dly 0.5
+19 mov P100 + VecZ30
+20 mvs P100
+21 hclose 1
+22 dly 0.5
+23 mvs P100 + VecZ30
+24 mov P99
+25 dly 1
+26 mov P100 + VecZ30
+27 mvs P100
+28 hopen 1
+29 dly 0.5
+30 mvs P100 + VecZ30
+31 mov P99
+32 L1 = 0
+33 goto *Inicio
+34 end

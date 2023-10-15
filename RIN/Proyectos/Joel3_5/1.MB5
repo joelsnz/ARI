@@ -1,56 +1,67 @@
-1 def pos PIn
-2 def pos PSec
-3 def pos PColor
-4 def pos PInColor
-5 def pos PStr1
-6 def pos PStr2
-7 def pos VecZ30
+1 'Definir posiciones de la lista de posiciones
+2 def pos PIn
+3 def pos PSec
+4 def pos PColor
+5 def pos PInColor
+6 def pos PStr1
+7 def pos PStr2
+8 def pos VecZ30
 
-8 VecZ30 = (0,0,30,0,0,0)
+9 VecZ30 = (0,0,30,0,0,0)
 
-9 def io S1 = bit, 3 'Pulsador marcha
-10 def io S2 = bit, 4 'Pulsador paro
-11 def io L1 = bit, 2 'Indicador luminoso Q1
-12 def io B1 = bit, 6 'Detector pieza rampa entrada
-13 def io B2 = bit, 900 'Detector pieza negra
+10 def io S1 = bit, 3 'Pulsador marcha
+11 def io S2 = bit, 4 'Pulsador paro
+12 def io L1 = bit, 2 'Indicador luminoso Q1
+13 def io B1 = bit, 6 'Detector pieza rampa entrada
+14 def io B2 = bit, 900 'Detector pieza negra
 
-14 spd 30
-15 ovrd 30
+15 spd 30
+16 ovrd 30
 
-16 *Inicio
+17 *Inicio
 
-17 while S1 = 0
-18 wend
-19 L1 = 1
-20 mov PSec
-21 hopen 1
-22 while B1 = 0
-23 wend
-24 mov PColor
-25 if B2 then
-26 	mov PInColor
-27 	mov PIn + VecZ30
-28 	mvs PIn
-29 	hclose 1
-30 	dly 0.5
-31 	mvs PIn + VecZ30
-32 	mov PStr2 + VecZ30
-33 	mvs PStr2
-34 	hopen 1
-35 	mvs PStr2 + VecZ30
-36 else
-37 	mov PInColor
-38 	mov PIn + VecZ30
-39 	mvs PIn
-40 	hclose 1
-41 	dly 0.5
-42 	mvs PIn + VecZ30
-43 	mov PStr1 + VecZ30
-44 	mvs PStr1
-45 	hopen 1
-46 	mvs PStr1 + VecZ30
-47 endif
-48 mov PSec
-49 L1 = 0
-50 goto *Inicio
-51 end
+18 'Esperar hasta que se pulse S1
+19 while S1 = 0 
+20 wend
+
+21 'Ir a la posición de seguridad, abrir la pinza y encender L1
+22 L1 = 1
+23 mov PSec
+24 hopen 1
+
+25 'Esperar hasta que haya pieza en la rampa de entrada
+26 while B1 = 0
+27 wend
+
+28 'Si la pieza es negra, llevarla al almacenamiento 1
+29 'Si la pieza no es negra, llevarla al almacenamiento 2
+30 mov PColor
+31 if B2 then
+32 	mov PInColor
+33 	mov PIn + VecZ30
+34 	mvs PIn
+35 	hclose 1
+36 	dly 0.5
+37 	mvs PIn + VecZ30
+38 	mov PStr2 + VecZ30
+39 	mvs PStr2
+40 	hopen 1
+41 	mvs PStr2 + VecZ30
+42 else
+43 	mov PInColor
+44 	mov PIn + VecZ30
+45 	mvs PIn
+46 	hclose 1
+47 	dly 0.5
+48 	mvs PIn + VecZ30
+49 	mov PStr1 + VecZ30
+50 	mvs PStr1
+51 	hopen 1
+52 	mvs PStr1 + VecZ30
+53 endif
+
+54 'Llevar el robot a la posición de seguridad y apagar L1
+55 mov PSec
+56 L1 = 0
+57 goto *Inicio
+58 end

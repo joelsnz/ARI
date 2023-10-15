@@ -1,42 +1,56 @@
 1 def pos PIn
 2 def pos PSec
 3 def pos PColor
-4 def pos PStr1
-5 def pos PStr2
-6 def pos VecZ30
+4 def pos PInColor
+5 def pos PStr1
+6 def pos PStr2
+7 def pos VecZ30
 
-7 VecZ30 = (0,0,30,0,0,0)
+8 VecZ30 = (0,0,30,0,0,0)
 
-8 def io S1 = bit, 3 'Pulsador marcha
-9 def io S2 = bit, 4 'Pulsador paro
-10 def io L1 = bit, 2 'Indicador luminoso Q1
-11 def io B1 = bit, 6 'Detector pieza rampa entrada
-12 def io B2 = bit, 900 'Detector pieza negra
+9 def io S1 = bit, 3 'Pulsador marcha
+10 def io S2 = bit, 4 'Pulsador paro
+11 def io L1 = bit, 2 'Indicador luminoso Q1
+12 def io B1 = bit, 6 'Detector pieza rampa entrada
+13 def io B2 = bit, 900 'Detector pieza negra
 
-13 spd 30
-14 ovrd 30
+14 spd 30
+15 ovrd 30
 
-15 *Inicio
+16 *Inicio
 
-16 while S1 = 0
-17 wend
-18 L1 = 1
-19 mov PSec
-20 hopen 1
-21 while B1 = 0
-22 wend
-23 mov PColor
-24 if B2 then
-25 	mov PIn
-26 	hclose 1
-27 	mov PStr1
-28 else
-29 	mov PIn
-30 	hclose 1
-31 	mov PStr2
-32 endif
-33 hopen 1
-34 mov PSec
-35 L1 = 0
-36 goto *Inicio
-37 end
+17 while S1 = 0
+18 wend
+19 L1 = 1
+20 mov PSec
+21 hopen 1
+22 while B1 = 0
+23 wend
+24 mov PColor
+25 if B2 then
+26 	mov PInColor
+27 	mov PIn + VecZ30
+28 	mvs PIn
+29 	hclose 1
+30 	dly 0.5
+31 	mvs PIn + VecZ30
+32 	mov PStr2 + VecZ30
+33 	mvs PStr2
+34 	hopen 1
+35 	mvs PStr2 + VecZ30
+36 else
+37 	mov PInColor
+38 	mov PIn + VecZ30
+39 	mvs PIn
+40 	hclose 1
+41 	dly 0.5
+42 	mvs PIn + VecZ30
+43 	mov PStr1 + VecZ30
+44 	mvs PStr1
+45 	hopen 1
+46 	mvs PStr1 + VecZ30
+47 endif
+48 mov PSec
+49 L1 = 0
+50 goto *Inicio
+51 end

@@ -1,4 +1,7 @@
+DEF POS PInColor=(176.24,64.82,210.25,-180.00,-0.00,-180.00)(7,0) *// Posición Intermedia entre PIn y PColor
 DEF POS PColor=(176.24,64.82,185.51,180.00,0.00,180.00)(7,0) *// Robot Detectando Color en Rampa de Entrada
-DEF POS PIn=(116.00,406.10,308.14,-179.78,20.88,88.34)(7,0) *// Robot en Rampa de Salida
-DEF POS POut=(253.89,15.05,187.04,179.93,-0.04,-180.00)(7,0) *// Robot en Rampa de Entrada
+DEF POS POut=(116.00,406.10,308.14,-179.78,20.88,88.34)(7,0) *// Robot en Rampa de Salida
+DEF POS PStr2=(-85.49,200.47,160.74,179.93,-0.04,-91.10)(7,0) *// Robot en Almacenamiento 2
+DEF POS PStr1=(64.20,200.47,160.74,179.93,-0.04,-90.00)(7,0) *// Robot en Almacenamiento 1
+DEF POS PIn=(253.89,15.05,187.04,179.93,-0.04,-180.00)(7,0) *// Robot en Rampa de Entrada
 DEF POS PSec=(270.00,0.00,505.00,-180.00,0.00,-180.00)(7,0) *// Posición de Seguridad

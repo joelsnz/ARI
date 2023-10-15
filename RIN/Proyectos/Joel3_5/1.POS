@@ -1,0 +1,4 @@
+DEF POS PColor=(176.24,64.82,185.51,180.00,0.00,180.00)(7,0) *// Robot Detectando Color en Rampa de Entrada
+DEF POS PIn=(116.00,406.10,308.14,-179.78,20.88,88.34)(7,0) *// Robot en Rampa de Salida
+DEF POS POut=(253.89,15.05,187.04,179.93,-0.04,-180.00)(7,0) *// Robot en Rampa de Entrada
+DEF POS PSec=(270.00,0.00,505.00,-180.00,0.00,-180.00)(7,0) *// Posición de Seguridad

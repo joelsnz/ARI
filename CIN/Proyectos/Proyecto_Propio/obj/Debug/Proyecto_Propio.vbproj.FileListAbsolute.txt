@@ -1,0 +1,12 @@
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\bin\Debug\Proyecto_Propio.exe.config
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\bin\Debug\Proyecto_Propio.exe
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\bin\Debug\Proyecto_Propio.pdb
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\bin\Debug\Proyecto_Propio.xml
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.vbproj.AssemblyReference.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.Form1.resources
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.Resources.resources
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.vbproj.GenerateResource.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.vbproj.CoreCompileInputs.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.exe
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.xml
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Proyecto_Propio\obj\Debug\Proyecto_Propio.pdb

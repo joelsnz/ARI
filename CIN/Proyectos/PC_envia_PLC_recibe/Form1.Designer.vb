@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,8 +20,9 @@ Partial Class Form1
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBoxControlPuerto = New System.Windows.Forms.GroupBox()
         Me.PictureBoxEstadoPuerto = New System.Windows.Forms.PictureBox()
         Me.LabelEstadoPuerto = New System.Windows.Forms.Label()
@@ -31,6 +32,7 @@ Partial Class Form1
         Me.GroupBoxSalida0 = New System.Windows.Forms.GroupBox()
         Me.ButtonDesconectarSalida = New System.Windows.Forms.Button()
         Me.ButtonConectarSalida = New System.Windows.Forms.Button()
+        Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBoxControlPuerto.SuspendLayout()
         CType(Me.PictureBoxEstadoPuerto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxSalida0.SuspendLayout()
@@ -150,4 +152,5 @@ Partial Class Form1
     Friend WithEvents ButtonConectarSalida As Button
     Friend WithEvents PictureBoxEstadoPuerto As PictureBox
     Friend WithEvents ButtonDesconectarSalida As Button
+    Friend WithEvents SerialPort As IO.Ports.SerialPort
 End Class

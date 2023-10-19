@@ -1,4 +1,5 @@
-﻿Imports System.ComponentModel.Design.Serialization
+﻿Imports System.ComponentModel
+Imports System.ComponentModel.Design.Serialization
 Imports System.IO.Ports
 
 Public Class Form1
@@ -104,8 +105,13 @@ Public Class Form1
             'Cerramos el puerto de Enviar
             SerialPort.Close()
             'Llamamos de nuevo al form1_Load, para que todo quede igual
-            Call Form1_Load()
-
+            Call Form1_Load(sender, e)
+        Else
+            'Avisamos de que no estamos conectados
+            MsgBox("EL PUERTO NO ESTÁ ABIERTO", MsgBoxStyle.Exclamation)
         End If
+    End Sub
+    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        Call ButtonDesconectar_Click(sender, e)
     End Sub
 End Class

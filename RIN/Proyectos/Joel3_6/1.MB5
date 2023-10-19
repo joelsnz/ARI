@@ -1,0 +1,92 @@
+1 'Definir posiciones de la lista de posiciones
+2 def pos PIn
+3 def pos PSec
+4 def pos PColor
+5 def pos PInColor
+6 def pos PStr1
+7 def pos VecZ30
+8 def pos POut
+9 def pos PHome
+
+10 VecZ30 = (0,0,30,0,0,0)
+
+11 def io PM = bit, 3 'Pulsador marcha
+12 def io PR = bit, 5 'Pulsador reset
+13 def io Q1 = bit, 2 'Indicador luminoso Q1
+14 def io Q2 = bit, 3 'Indicor luminoso Q2
+15 def io B1 = bit, 6 'Detector pieza rampa entrada
+16 def io B2 = bit, 900 'Detector pieza negra
+17 def inte count 'Contador de botes en el almacén 1
+18 count = 0
+
+19 'Definir la velocidad del robot
+20 spd 30
+21 ovrd 30
+
+22 *Inicio
+
+23 'Si hay 5 piezas en el almacén, encender Q1 y Q2 y esperar a que se pulse reset
+24 if count => 5 then
+25 	Q1 = 1
+26 	Q2 = 1
+27 	while PR = 0
+28 	wend
+29 	Q1 = 0
+30 	Q2 = 0
+31 	count = 0
+32 endif
+
+33 'Esperar a que se pulse marcha
+34 while PM = 0
+35 wend
+
+36 'Ir a la posición de seguridad, abrir la pinza y encender Q1
+37 mov PSec
+38 hopen 1
+39 Q1 = 1
+
+40 'Esperar a que haya pieza entrante
+41 while B1 = 0
+42 wend
+
+43 'Detectar color
+44 mov PColor
+
+45 if B2 then
+46 	'Si la pieza es de color, llevarla al almacén 1
+47 	mov PInColor
+48 	mov PIn + VecZ30
+49 	mvs PIn
+50 	hclose 1
+51 	dly 0.5
+52 	mvs PIn + VecZ30
+53 	mov PStr1 + VecZ30
+54 	mvs PStr1
+55 	hopen 1
+56 	dly 0.5
+57 	mvs PStr1 + VecZ30
+58 	mov PHome
+59 	count = count + 1
+60 else
+61 	'Si la pieza es negra, llevarla a la rampa de salida
+62 	mov PInColor
+63 	mov PIn + VecZ30
+64 	mvs PIn
+65 	hclose 1
+66 	dly 0.5
+67 	mvs PIn + VecZ30
+68 	spd 200
+69 	mvr PIn + VecZ30, PHome, POut + VecZ30
+70 	spd 30
+71 	mov POut + VecZ30
+72 	mvs POut
+73 	hopen 1
+74 	dly 0.5
+75 	mov PHome
+76 endif
+
+77 'Apagar Q1
+78 Q1 = 0
+
+79 goto *Inicio
+80 end

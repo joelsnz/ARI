@@ -1,0 +1,102 @@
+1 'Definir posiciones del robot
+2 def pos PIn
+3 def pos PSec
+4 def pos POut
+5 def pos VecZ30
+6 def pos PStr3
+7 def pos PInStr3
+
+8 VecZ30 = (0,0,30,0,0,0)
+
+9 def io PM = bit, 3 'Pulsador de Marcha
+10 def io PR = bit, 5 'Pulsador de Reset
+11 def io Q1 = bit, 2 'Piloto Q1
+12 def io Q2 = bit, 3 'Piloto Q2
+13 def io B1 = bit, 6 'Detector Pieza Entrante
+14 def inte cicles 'Contador de ciclos
+
+15 'Definir velocidad de movimiento
+16 OVRD 50
+17 SPD 30
+
+18 *Inicio
+
+19 'Esperar a que se pulse PM
+20 while PM = 0
+21 wend
+22 'Ir a la posición de seguridad, abrir la mano y encender Q1
+23 Q1 = 1
+24 mov PSec
+25 hopen 1
+
+26 'Llevar las 2 primeras piezas en la rampa de entrada al almacén
+27 for cicles = 1 to 2 step 1
+28 	'Bloquear hasta detectar pieza entrante
+29 	while B1 = 0
+30 	wend
+31 	'Ir a la rampa de entrada y coger la pieza
+32 	mov PIn + VecZ30
+33 	mvs PIn
+34 	hclose 1
+35 	dly 0.5
+36 	'Ir al almacén y soltar la pieza
+37 	mvs PIn + VecZ30
+38 	spd 120
+39 	mvr PIn + VecZ30, PInStr3, PStr3 + VecZ30
+40 	spd 30
+41 	mvs PStr3
+42 	hopen 1
+43 	dly 0.5
+44 	mvs PStr3 + VecZ30
+45 	mov PInStr3
+46 next cicles
+
+47 'Llevar las siguientes 3 piezas a la rampa de salida
+48 for cicles = 1 to 3 step 1
+49 	'Bloquear hasta detectar pieza entrante
+50 	while B1 = 0
+51 	wend
+52 	'Ir a la rampa de entrada y coger la pieza
+53 	mov PIn + VecZ30
+54 	mvs PIn
+55 	hclose 1
+56 	dly 0.5
+57 	'Ir a la rampa de salida y soltar la pieza
+58 	mvs PIn + VecZ30
+59 	spd 120
+60 	mvr PIn + VecZ30, PInStr3, POut + VecZ30
+61 	spd 30
+62 	mov POut + VecZ30
+63 	mvs POut
+64 	hopen 1
+65 	dly 0.5
+66 	mvs POut + VecZ30
+67 	mov PInStr3
+68 next cicles
+
+69 'Encender Q2 para indicar proceso finalizado
+70 Q2 = 1
+
+71 'Esperar a que se pulse PR
+72 while PR = 0
+73 wend
+
+74 'Apagar ambos pilotos
+75 Q1 = 0
+76 Q2 = 0
+
+77 'Volver al inicio del programa
+78 goto *Inicio
+79 end
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,5 @@
+DEF POS PInStr3=(111.06,218.71,319.40,179.93,-0.04,-180.00)(7,0) *// Posición Intermedia entre PIn y Pstr3
+DEF POS PStr3=(47.51,403.62,303.11,179.93,-0.04,180.00)(7,0) *// Robot en almacén 3
+DEF POS PIn=(253.89,15.05,187.04,179.93,-0.04,-180.00)(7,0) *// Robot en rampa de entrada
+DEF POS PSec=(270.00,0.00,505.00,-180.00,0.00,-180.00)(7,0) *// Posición de Seguridad
+DEF POS POut=(116.00,406.10,308.14,-179.78,20.88,88.34)(7,0) *// Robot en rampa de salida

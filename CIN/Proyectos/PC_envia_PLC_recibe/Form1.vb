@@ -10,6 +10,13 @@ Public Class Form1
         ButtonConectar.Enabled = True
         ButtonDesconectar.Enabled = False
 
+        'Deshabilito los botones del groupbox_salida0
+        GroupBoxSalida0.Enabled = False
+
+        'Mostrar texto adecuado en los botones del groupbox
+        buttonSalida0On.Text = "Conectar"
+        buttonSalida0Off.Text = "Desconectar"
+
         'Mostramos el estado del puerto
         LabelEstadoPuerto.ForeColor = Color.DarkRed
         LabelEstadoPuerto.Text = "DESCONECTADO"
@@ -84,6 +91,8 @@ Public Class Form1
                     'Habilitamos el button desconectar y deshabilitamos el button conectar
                     ButtonDesconectar.Enabled = True
                     ButtonConectar.Enabled = False
+                    'Habilito los botones del groupbox_salida0
+                    GroupBoxSalida0.Enabled = True
                 Else
                     'Si no hemos podido abrirlo lo indicamos con MsgBox
                     MsgBox("FALLO EN LA CONEXIÓN", MsgBoxStyle.Critical)
@@ -98,7 +107,7 @@ Public Class Form1
 
     Private Sub ButtonDesconectar_Click(sender As Object, e As EventArgs) Handles ButtonDesconectar.Click
         'Si el puerto está abierto
-        If SerialPort.IsOpen = True Then
+        If SerialPort.IsOpen Then
             'Limpia el puerto de salida y de entrada (Carácteres residuales)
             SerialPort.DiscardInBuffer()
             SerialPort.DiscardOutBuffer()
@@ -111,7 +120,31 @@ Public Class Form1
             MsgBox("EL PUERTO NO ESTÁ ABIERTO", MsgBoxStyle.Exclamation)
         End If
     End Sub
+
     Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        Call ButtonDesconectar_Click(sender, e)
+        If SerialPort.IsOpen Then
+            Call ButtonDesconectar_Click(sender, e)
+        End If
+    End Sub
+
+    Private Sub buttonSalida0On_Click(sender As Object, e As EventArgs) Handles buttonSalida0On.Click
+        'Si el puerto está abierto
+        If SerialPort.IsOpen Then
+            'Voy a intentar enviar la trama de activar la salida 0 del PLC
+            Try
+                Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                'Asigno un valor a cada byte
+                'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                Trama_Saliente(0) = &H34
+                Trama_Saliente(1) = &HF2
+                Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz.
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
     End Sub
 End Class

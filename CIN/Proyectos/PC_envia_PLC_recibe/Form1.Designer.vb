@@ -30,8 +30,8 @@ Partial Class Form1
         Me.ButtonConectar = New System.Windows.Forms.Button()
         Me.ComboBoxPuertos = New System.Windows.Forms.ComboBox()
         Me.GroupBoxSalida0 = New System.Windows.Forms.GroupBox()
-        Me.ButtonDesconectarSalida = New System.Windows.Forms.Button()
-        Me.ButtonConectarSalida = New System.Windows.Forms.Button()
+        Me.buttonSalida0Off = New System.Windows.Forms.Button()
+        Me.buttonSalida0On = New System.Windows.Forms.Button()
         Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBoxControlPuerto.SuspendLayout()
         CType(Me.PictureBoxEstadoPuerto, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -98,8 +98,8 @@ Partial Class Form1
         '
         'GroupBoxSalida0
         '
-        Me.GroupBoxSalida0.Controls.Add(Me.ButtonDesconectarSalida)
-        Me.GroupBoxSalida0.Controls.Add(Me.ButtonConectarSalida)
+        Me.GroupBoxSalida0.Controls.Add(Me.buttonSalida0Off)
+        Me.GroupBoxSalida0.Controls.Add(Me.buttonSalida0On)
         Me.GroupBoxSalida0.Font = New System.Drawing.Font("Roboto Mono", 10.2!, System.Drawing.FontStyle.Bold)
         Me.GroupBoxSalida0.Location = New System.Drawing.Point(12, 124)
         Me.GroupBoxSalida0.Name = "GroupBoxSalida0"
@@ -108,23 +108,23 @@ Partial Class Form1
         Me.GroupBoxSalida0.TabStop = False
         Me.GroupBoxSalida0.Text = "Salida 0"
         '
-        'ButtonDesconectarSalida
+        'buttonSalida0Off
         '
-        Me.ButtonDesconectarSalida.Location = New System.Drawing.Point(461, 29)
-        Me.ButtonDesconectarSalida.Name = "ButtonDesconectarSalida"
-        Me.ButtonDesconectarSalida.Size = New System.Drawing.Size(152, 30)
-        Me.ButtonDesconectarSalida.TabIndex = 5
-        Me.ButtonDesconectarSalida.Text = "Desconectar"
-        Me.ButtonDesconectarSalida.UseVisualStyleBackColor = True
+        Me.buttonSalida0Off.Location = New System.Drawing.Point(461, 29)
+        Me.buttonSalida0Off.Name = "buttonSalida0Off"
+        Me.buttonSalida0Off.Size = New System.Drawing.Size(152, 30)
+        Me.buttonSalida0Off.TabIndex = 5
+        Me.buttonSalida0Off.Text = "Desconectar"
+        Me.buttonSalida0Off.UseVisualStyleBackColor = True
         '
-        'ButtonConectarSalida
+        'buttonSalida0On
         '
-        Me.ButtonConectarSalida.Location = New System.Drawing.Point(11, 29)
-        Me.ButtonConectarSalida.Name = "ButtonConectarSalida"
-        Me.ButtonConectarSalida.Size = New System.Drawing.Size(152, 30)
-        Me.ButtonConectarSalida.TabIndex = 4
-        Me.ButtonConectarSalida.Text = "Conectar"
-        Me.ButtonConectarSalida.UseVisualStyleBackColor = True
+        Me.buttonSalida0On.Location = New System.Drawing.Point(11, 29)
+        Me.buttonSalida0On.Name = "buttonSalida0On"
+        Me.buttonSalida0On.Size = New System.Drawing.Size(152, 30)
+        Me.buttonSalida0On.TabIndex = 4
+        Me.buttonSalida0On.Text = "Conectar"
+        Me.buttonSalida0On.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -149,8 +149,8 @@ Partial Class Form1
     Friend WithEvents ButtonConectar As Button
     Friend WithEvents ButtonDesconectar As Button
     Friend WithEvents LabelEstadoPuerto As Label
-    Friend WithEvents ButtonConectarSalida As Button
+    Friend WithEvents buttonSalida0On As Button
     Friend WithEvents PictureBoxEstadoPuerto As PictureBox
-    Friend WithEvents ButtonDesconectarSalida As Button
+    Friend WithEvents buttonSalida0Off As Button
     Friend WithEvents SerialPort As IO.Ports.SerialPort
 End Class

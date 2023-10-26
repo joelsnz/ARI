@@ -1,0 +1,60 @@
+1 '----------------------------------------------------------------'
+2 'Definimos variables de posicionamiento para los puntos del palet'
+3 'como son las cuatro esquinas del mismo '
+4 '----------------------------------------------------------------'
+5 DEF POS P101
+6 DEF POS P102
+7 DEF POS P103
+8 '----------------------------------------------------------------'
+9 'Definimos una variable de posición para una distancia '
+10 'de seguridad, desde la cual realizaremos las operaciones MVS '
+11 '----------------------------------------------------------------'
+12 DEF POS VecZ25
+13 '----------------------------------------------------------------'
+14 'Definimos variables enteras para poder realizar el bucle '
+15 'while / wend para el total de las piezas a paletizar. '
+16 '----------------------------------------------------------------'
+17 DEF INTE M
+18 '----------------------------------------------------------------'
+19 'Definimos la variable para usarla en el bucle para while/wend '
+20 'asignando el palet y el contador de piezas '
+21 '----------------------------------------------------------------'
+22 DEF POS P70
+23 '----------------------------------------------------------------'
+24 'Asignamos valores a cada una de las posiciones de las esquinas '
+25 'del palet y a la distancia de seguridad '
+26 '----------------------------------------------------------------'
+27 P101 = P1Pal + (52,0,0,0,0,0)
+28 P102 = P1Pal + (0,-260,0,0,0,0)
+29 P103 = P1Pal + (52,-260,0,0,0,0)
+30 VecZ25 = (0,0,+25,0,0,0)
+31 '----------------------------------------------------------------'
+32 'Definimos la entrada de control del programa como detector de '
+33 'pieza al final de rampa. Dado por el bit 6 '
+34 '----------------------------------------------------------------'
+35 DEF IO PART_AV = BIT,6
+36 '----------------------------------------------------------------'
+37 'Definimos el palet. '
+38 '----------------------------------------------------------------'
+39 DEF PLT 1, P1Pal,P101,P102,P103,2,6,1
+40 MOV PSec 'Posición de inicio.
+41 HOPEN 1 'Nos aseguramos que esté la pinza abierta.
+42 FOR M = 1 to 12 step 1 'Inicio de bucle hasta que lleguemos a los 9 del 3x3
+43 	*L0 'Permanecemos en este lazo hasta que se tenga pieza al
+44 	IF PART_AV=0 THEN *L0
+45 		HOPEN 1 'Nos aseguramos que esté la pinza abierta.
+46 		MOV PIn + VecZ25
+47 		MVS PIn
+48 		HClose 1 'Nos aseguramos que esté la pinza abierta.
+49 		Dly 0.5
+50 		MVS PIn + VecZ25 'Desplazamos hasta P1 + distancia de seguridad
+51 		P70 = (PLT 1,M) 'Asignamos a una variable que controle al palet
+52 		MOV P70 + VecZ25 'y número de piezas. Controlamos la distancia de seguridad
+53 		MVS P70 'y nos movemos linealmente hasta posición que indique
+54 		'según el control del palet y número de pieza a colocar.
+55 		HOPEN 1
+56 		Dly 0.5
+57 		MVS P70 + VecZ25 'Volvemos a posición segura después de dejar pieza
+58 		MOV PSec 'volvemos a la posición de inicio y repetimos proceso.
+59 NEXT M
+60 End

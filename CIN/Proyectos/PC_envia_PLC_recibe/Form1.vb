@@ -147,4 +147,25 @@ Public Class Form1
             End Try
         End If
     End Sub
+
+    Private Sub buttonSalida0Off_Click(sender As Object, e As EventArgs) Handles buttonSalida0Off.Click
+        'Si el puerto está abierto
+        If SerialPort.IsOpen Then
+            'Voy a intentar enviar la trama de activar la salida 0 del PLC
+            Try
+                Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                'Asigno un valor a cada byte
+                'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                Trama_Saliente(0) = &H25
+                Trama_Saliente(1) = &H31
+                Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz.
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
 End Class

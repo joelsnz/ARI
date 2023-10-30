@@ -12,10 +12,7 @@ Public Class Form1
 
         'Deshabilito los botones del groupbox_salida0
         GroupBoxSalida0.Enabled = False
-
-        'Mostrar texto adecuado en los botones del groupbox
-        buttonSalida0On.Text = "Conectar"
-        buttonSalida0Off.Text = "Desconectar"
+        GroupBoxSalida1.Enabled = False
 
         'Mostramos el estado del puerto
         LabelEstadoPuerto.ForeColor = Color.DarkRed
@@ -93,6 +90,7 @@ Public Class Form1
                     ButtonConectar.Enabled = False
                     'Habilito los botones del groupbox_salida0
                     GroupBoxSalida0.Enabled = True
+                    GroupBoxSalida1.Enabled = True
                 Else
                     'Si no hemos podido abrirlo lo indicamos con MsgBox
                     MsgBox("FALLO EN LA CONEXIÓN", MsgBoxStyle.Critical)
@@ -127,45 +125,87 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub buttonSalida0On_Click(sender As Object, e As EventArgs) Handles buttonSalida0On.Click
-        'Si el puerto está abierto
-        If SerialPort.IsOpen Then
-            'Voy a intentar enviar la trama de activar la salida 0 del PLC
-            Try
-                Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                'Asigno un valor a cada byte
-                'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                Trama_Saliente(0) = &H34
-                Trama_Saliente(1) = &HF2
-                Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                'hasta el último componente de la matriz.
-                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-            Catch ex As Exception
-                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+    Private Sub CheckBoxSalida0_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSalida0.CheckedChanged
+        If CheckBoxSalida0.Checked Then
+            'Si el puerto está abierto
+            If SerialPort.IsOpen Then
+                'Voy a intentar enviar la trama de activar la salida 0 del PLC
+                Try
+                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                    'Asigno un valor a cada byte
+                    'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                    Trama_Saliente(0) = &H34
+                    Trama_Saliente(1) = &HF2
+                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                    'hasta el último componente de la matriz.
+                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+                Catch ex As Exception
+                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        Else
+            'Si el puerto está abierto
+            If SerialPort.IsOpen Then
+                'Voy a intentar enviar la trama de activar la salida 0 del PLC
+                Try
+                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                    'Asigno un valor a cada byte
+                    'La trama es: 25 31 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                    Trama_Saliente(0) = &H25
+                    Trama_Saliente(1) = &H31
+                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                    'hasta el último componente de la matriz.
+                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+                Catch ex As Exception
+                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
         End If
     End Sub
 
-    Private Sub buttonSalida0Off_Click(sender As Object, e As EventArgs) Handles buttonSalida0Off.Click
-        'Si el puerto está abierto
-        If SerialPort.IsOpen Then
-            'Voy a intentar enviar la trama de activar la salida 0 del PLC
-            Try
-                Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                'Asigno un valor a cada byte
-                'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                Trama_Saliente(0) = &H25
-                Trama_Saliente(1) = &H31
-                Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                'hasta el último componente de la matriz.
-                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-            Catch ex As Exception
-                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End Try
+    Private Sub CheckBoxSalida1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSalida1.CheckedChanged
+        If CheckBoxSalida1.Checked Then
+            'Si el puerto está abierto
+            If SerialPort.IsOpen Then
+                'Voy a intentar enviar la trama de activar la salida 0 del PLC
+                Try
+                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                    'Asigno un valor a cada byte
+                    'La trama es: 22 F1 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                    Trama_Saliente(0) = &H22
+                    Trama_Saliente(1) = &HF1
+                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                    'hasta el último componente de la matriz.
+                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+                Catch ex As Exception
+                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
+        Else
+            'Si el puerto está abierto
+            If SerialPort.IsOpen Then
+                'Voy a intentar enviar la trama de activar la salida 0 del PLC
+                Try
+                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
+                    'Asigno un valor a cada byte
+                    'La trama es: 11 23 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+                    Trama_Saliente(0) = &H11
+                    Trama_Saliente(1) = &H23
+                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
+                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                    'hasta el último componente de la matriz.
+                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+                Catch ex As Exception
+                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
+            End If
         End If
     End Sub
 End Class

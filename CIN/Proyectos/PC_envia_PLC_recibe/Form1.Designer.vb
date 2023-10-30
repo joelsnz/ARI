@@ -30,12 +30,14 @@ Partial Class Form1
         Me.ButtonConectar = New System.Windows.Forms.Button()
         Me.ComboBoxPuertos = New System.Windows.Forms.ComboBox()
         Me.GroupBoxSalida0 = New System.Windows.Forms.GroupBox()
-        Me.buttonSalida0Off = New System.Windows.Forms.Button()
-        Me.buttonSalida0On = New System.Windows.Forms.Button()
         Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
+        Me.GroupBoxSalida1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxSalida0 = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxSalida1 = New System.Windows.Forms.CheckBox()
         Me.GroupBoxControlPuerto.SuspendLayout()
         CType(Me.PictureBoxEstadoPuerto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxSalida0.SuspendLayout()
+        Me.GroupBoxSalida1.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBoxControlPuerto
@@ -98,39 +100,52 @@ Partial Class Form1
         '
         'GroupBoxSalida0
         '
-        Me.GroupBoxSalida0.Controls.Add(Me.buttonSalida0Off)
-        Me.GroupBoxSalida0.Controls.Add(Me.buttonSalida0On)
+        Me.GroupBoxSalida0.Controls.Add(Me.CheckBoxSalida0)
         Me.GroupBoxSalida0.Font = New System.Drawing.Font("Roboto Mono", 10.2!, System.Drawing.FontStyle.Bold)
         Me.GroupBoxSalida0.Location = New System.Drawing.Point(12, 124)
         Me.GroupBoxSalida0.Name = "GroupBoxSalida0"
-        Me.GroupBoxSalida0.Size = New System.Drawing.Size(622, 72)
+        Me.GroupBoxSalida0.Size = New System.Drawing.Size(308, 72)
         Me.GroupBoxSalida0.TabIndex = 1
         Me.GroupBoxSalida0.TabStop = False
         Me.GroupBoxSalida0.Text = "Salida 0"
         '
-        'buttonSalida0Off
+        'GroupBoxSalida1
         '
-        Me.buttonSalida0Off.Location = New System.Drawing.Point(461, 29)
-        Me.buttonSalida0Off.Name = "buttonSalida0Off"
-        Me.buttonSalida0Off.Size = New System.Drawing.Size(152, 30)
-        Me.buttonSalida0Off.TabIndex = 5
-        Me.buttonSalida0Off.Text = "Desconectar"
-        Me.buttonSalida0Off.UseVisualStyleBackColor = True
+        Me.GroupBoxSalida1.Controls.Add(Me.CheckBoxSalida1)
+        Me.GroupBoxSalida1.Font = New System.Drawing.Font("Roboto Mono", 10.2!, System.Drawing.FontStyle.Bold)
+        Me.GroupBoxSalida1.Location = New System.Drawing.Point(326, 124)
+        Me.GroupBoxSalida1.Name = "GroupBoxSalida1"
+        Me.GroupBoxSalida1.Size = New System.Drawing.Size(308, 72)
+        Me.GroupBoxSalida1.TabIndex = 2
+        Me.GroupBoxSalida1.TabStop = False
+        Me.GroupBoxSalida1.Text = "Salida 1"
         '
-        'buttonSalida0On
+        'CheckBoxSalida0
         '
-        Me.buttonSalida0On.Location = New System.Drawing.Point(11, 29)
-        Me.buttonSalida0On.Name = "buttonSalida0On"
-        Me.buttonSalida0On.Size = New System.Drawing.Size(152, 30)
-        Me.buttonSalida0On.TabIndex = 4
-        Me.buttonSalida0On.Text = "Conectar"
-        Me.buttonSalida0On.UseVisualStyleBackColor = True
+        Me.CheckBoxSalida0.AutoSize = True
+        Me.CheckBoxSalida0.Location = New System.Drawing.Point(11, 39)
+        Me.CheckBoxSalida0.Name = "CheckBoxSalida0"
+        Me.CheckBoxSalida0.Size = New System.Drawing.Size(112, 27)
+        Me.CheckBoxSalida0.TabIndex = 0
+        Me.CheckBoxSalida0.Text = "Conected"
+        Me.CheckBoxSalida0.UseVisualStyleBackColor = True
+        '
+        'CheckBoxSalida1
+        '
+        Me.CheckBoxSalida1.AutoSize = True
+        Me.CheckBoxSalida1.Location = New System.Drawing.Point(7, 39)
+        Me.CheckBoxSalida1.Name = "CheckBoxSalida1"
+        Me.CheckBoxSalida1.Size = New System.Drawing.Size(112, 27)
+        Me.CheckBoxSalida1.TabIndex = 1
+        Me.CheckBoxSalida1.Text = "Conected"
+        Me.CheckBoxSalida1.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(647, 207)
+        Me.Controls.Add(Me.GroupBoxSalida1)
         Me.Controls.Add(Me.GroupBoxSalida0)
         Me.Controls.Add(Me.GroupBoxControlPuerto)
         Me.Name = "Form1"
@@ -139,6 +154,9 @@ Partial Class Form1
         Me.GroupBoxControlPuerto.PerformLayout()
         CType(Me.PictureBoxEstadoPuerto, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxSalida0.ResumeLayout(False)
+        Me.GroupBoxSalida0.PerformLayout()
+        Me.GroupBoxSalida1.ResumeLayout(False)
+        Me.GroupBoxSalida1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -149,8 +167,9 @@ Partial Class Form1
     Friend WithEvents ButtonConectar As Button
     Friend WithEvents ButtonDesconectar As Button
     Friend WithEvents LabelEstadoPuerto As Label
-    Friend WithEvents buttonSalida0On As Button
     Friend WithEvents PictureBoxEstadoPuerto As PictureBox
-    Friend WithEvents buttonSalida0Off As Button
     Friend WithEvents SerialPort As IO.Ports.SerialPort
+    Friend WithEvents GroupBoxSalida1 As GroupBox
+    Friend WithEvents CheckBoxSalida0 As CheckBox
+    Friend WithEvents CheckBoxSalida1 As CheckBox
 End Class

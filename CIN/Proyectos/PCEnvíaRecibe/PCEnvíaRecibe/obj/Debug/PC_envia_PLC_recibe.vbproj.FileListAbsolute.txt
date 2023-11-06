@@ -22,3 +22,15 @@ C:\Users\joel\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debu
 C:\Users\joel\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.exe
 C:\Users\joel\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.xml
 C:\Users\joel\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.pdb
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\bin\Debug\PC_envia_PLC_recibe.exe.config
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\bin\Debug\PC_envia_PLC_recibe.exe
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\bin\Debug\PC_envia_PLC_recibe.pdb
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\bin\Debug\PC_envia_PLC_recibe.xml
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.vbproj.AssemblyReference.cache
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.Form1.resources
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.Resources.resources
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.vbproj.GenerateResource.cache
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.vbproj.CoreCompileInputs.cache
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.exe
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.xml
+C:\Users\joel0\Documents\ARI\CIN\Proyectos\PCEnvíaRecibe\PCEnvíaRecibe\obj\Debug\PC_envia_PLC_recibe.pdb

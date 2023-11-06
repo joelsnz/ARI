@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.ComponentModel.Design.Serialization
 Imports System.IO.Ports
+Imports System.Linq.Expressions
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -15,11 +16,15 @@ Public Class Form1
         GroupBoxSalida1.Enabled = False
 
         'Mostramos el estado del puerto
-        LabelEstadoPuerto.ForeColor = Color.DarkRed
-        LabelEstadoPuerto.Text = "DESCONECTADO"
-        LabelEstadoPuerto.AutoSize = True
-        PictureBoxEstadoPuerto.BackgroundImageLayout = ImageLayout.Stretch
-        PictureBoxEstadoPuerto.BackgroundImage = My.Resources.OFF
+        With LabelEstadoPuerto
+            .ForeColor = Color.DarkRed
+            .Text = "DESCONECTADO"
+            .AutoSize = True
+        End With
+        With PictureBoxEstadoPuerto
+            .BackgroundImageLayout = ImageLayout.Stretch
+            .BackgroundImage = My.Resources.OFF
+        End With
 
         'Personalizamos nuestro formulario
         With Me
@@ -29,34 +34,44 @@ Public Class Form1
         End With
 
         'Insertamos texto y color en los objetos
-        ButtonConectar.Text = "CONECTAR"
-        ButtonConectar.BackColor = Color.Green
-        ButtonDesconectar.Text = "DESCONECTAR"
-        ButtonDesconectar.BackColor = Color.Red
+        With ButtonConectar
+            .Text = "CONECTAR"
+            .BackColor = Color.Green
+        End With
+        With ButtonDesconectar
+            .Text = "DESCONECTAR"
+            .BackColor = Color.Red
+        End With
 
         'Leer estado entrada 0
         GroupBoxEntrada0.Text = "Entrada 0"
-        LabelEstadoEntrada0.Text = ""
-        LabelEstadoEntrada0.AutoSize = False
-        LabelEstadoEntrada0.Height = 20
-        LabelEstadoEntrada0.Width = 60
-        LabelEstadoEntrada0.BackColor = Color.Green
+        With LabelEstadoEntrada0
+            .Text = ""
+            .AutoSize = False
+            .Height = 20
+            .Width = 60
+            .BackColor = Color.Green
+        End With
 
         'Leer estado entrada 1
         GroupBoxEntrada1.Text = "Entrada 1"
-        LabelEstadoEntrada1.Text = ""
-        LabelEstadoEntrada1.AutoSize = False
-        LabelEstadoEntrada1.Height = 20
-        LabelEstadoEntrada1.Width = 60
-        LabelEstadoEntrada1.BackColor = Color.Green
+        With LabelEstadoEntrada1
+            .Text = ""
+            .AutoSize = False
+            .Height = 20
+            .Width = 60
+            .BackColor = Color.Green
+        End With
 
         'Leer estado entrada 2
         GroupBoxEntrada2.Text = "Entrada 2"
-        LabelEstadoEntrada2.Text = ""
-        LabelEstadoEntrada2.AutoSize = False
-        LabelEstadoEntrada2.Height = 20
-        LabelEstadoEntrada2.Width = 60
-        LabelEstadoEntrada2.BackColor = Color.Green
+        With LabelEstadoEntrada2
+            .Text = ""
+            .AutoSize = False
+            .Height = 20
+            .Width = 60
+            .BackColor = Color.Green
+        End With
 
         'Función que busca los puertos existentes en la máquina donde se ejecuta
         'la aplicación y los enumera en el combobox para que el usuario escoja un puerto
@@ -91,7 +106,7 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub ButtonConectar_Click(sender As Object, e As EventArgs) Handles ButtonConectar.Click
+    Private Sub ConectarPuerto(sender As Object, e As EventArgs) Handles ButtonConectar.Click
         'Utilizamos un bloque Try catch para capturar cualquier excepción que nos de windows
         Try
             'Configuro el puerto, le asigno el nombre y lo abrimos
@@ -106,8 +121,8 @@ Public Class Form1
                 .Open()
                 'Si hemos podido abrirlo, lo indicamos
                 If .IsOpen Then
-                    SerialPort.DiscardInBuffer()
-                    SerialPort.DiscardOutBuffer()
+                    .DiscardInBuffer()
+                    .DiscardOutBuffer()
                     PictureBoxEstadoPuerto.BackgroundImage = My.Resources._ON
                     LabelEstadoPuerto.Text = "CONECTADO A " & .PortName
                     LabelEstadoPuerto.ForeColor = Color.Blue
@@ -130,143 +145,117 @@ Public Class Form1
         End Try
     End Sub
 
-    Private Sub ButtonDesconectar_Click(sender As Object, e As EventArgs) Handles ButtonDesconectar.Click
+    Private Sub DesconectarPuerto(sender As Object, e As EventArgs) Handles ButtonDesconectar.Click, Me.Closing
+        'Si el puerto está abierto
+        With SerialPort
+            If .IsOpen Then
+                'Limpia el puerto de salida y de entrada (Carácteres residuales)
+                .DiscardInBuffer()
+                .DiscardOutBuffer()
+                'Cerramos el puerto de Enviar
+                .Close()
+                'Llamamos de nuevo al form1_Load, para que todo quede igual
+                Call Form1_Load(sender, e)
+            Else Me.OnClosing(e)
+                'Avisamos de que no estamos conectados
+                MsgBox("EL PUERTO NO ESTÁ ABIERTO", MsgBoxStyle.Exclamation)
+            End If
+        End With
+    End Sub
+
+    Private Sub conmutarEntrada0(sender As Object, e As EventArgs) Handles CheckBoxSalida0.CheckedChanged
+        Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+        If CheckBoxSalida0.Checked Then
+            'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+            'El &H40 representa el carácter '@'
+            Trama_Saliente = New Byte(2) {
+                &H34,
+                &HF2,
+                &H40} 'Asigno a la matriz 3 posiciones
+            'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+            'hasta el último componente de la matriz.
+            enviarDatos(Trama_Saliente)
+        Else
+            'La trama es: 25 31 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+            'El &H40 representa el carácter '@'
+            Trama_Saliente = New Byte(2) {
+                &H25,
+                &H31,
+                &H40} 'Asigno a la matriz 3 posiciones
+            'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+            'hasta el último componente de la matriz.
+            enviarDatos(Trama_Saliente) 'Enviar trama
+        End If
+    End Sub
+
+    Private Sub conmutarEntrada1(sender As Object, e As EventArgs) Handles CheckBoxSalida1.CheckedChanged
+        Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
+        If CheckBoxSalida1.Checked Then
+            'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+            'El &H40 representa el carácter '@'
+            Trama_Saliente = New Byte(2) {
+                &H22,
+                &HF1,
+                &H40} 'Asigno a la matriz 3 posiciones
+            'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+            'hasta el último componente de la matriz.
+            enviarDatos(Trama_Saliente)
+        Else
+            'La trama es: 25 31 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
+            'El &H40 representa el carácter '@'
+            Trama_Saliente = New Byte(2) {
+                &H11,
+                &H23,
+                &H40} 'Asigno a la matriz 3 posiciones
+            'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+            'hasta el último componente de la matriz.
+            enviarDatos(Trama_Saliente) 'Enviar trama
+        End If
+    End Sub
+
+    Private Sub enviarDatos(Trama_Saliente As Byte())
         'Si el puerto está abierto
         If SerialPort.IsOpen Then
-            'Limpia el puerto de salida y de entrada (Carácteres residuales)
-            SerialPort.DiscardInBuffer()
-            SerialPort.DiscardOutBuffer()
-            'Cerramos el puerto de Enviar
-            SerialPort.Close()
-            'Llamamos de nuevo al form1_Load, para que todo quede igual
-            Call Form1_Load(sender, e)
-        Else
-            'Avisamos de que no estamos conectados
-            MsgBox("EL PUERTO NO ESTÁ ABIERTO", MsgBoxStyle.Exclamation)
+            'Voy a intentar enviar la trama de activar la salida 0 del PLC
+            Try
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz.
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
         End If
     End Sub
 
-    Private Sub Form1_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
-        If SerialPort.IsOpen Then
-            Call ButtonDesconectar_Click(sender, e)
-        End If
-    End Sub
-
-    Private Sub CheckBoxSalida0_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSalida0.CheckedChanged
-        If CheckBoxSalida0.Checked Then
-            'Si el puerto está abierto
-            If SerialPort.IsOpen Then
-                'Voy a intentar enviar la trama de activar la salida 0 del PLC
-                Try
-                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                    'Asigno un valor a cada byte
-                    'La trama es: 34 F2 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                    Trama_Saliente(0) = &H34
-                    Trama_Saliente(1) = &HF2
-                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                    'hasta el último componente de la matriz.
-                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-                Catch ex As Exception
-                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-        Else
-            'Si el puerto está abierto
-            If SerialPort.IsOpen Then
-                'Voy a intentar enviar la trama de activar la salida 0 del PLC
-                Try
-                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                    'Asigno un valor a cada byte
-                    'La trama es: 25 31 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                    Trama_Saliente(0) = &H25
-                    Trama_Saliente(1) = &H31
-                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                    'hasta el último componente de la matriz.
-                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-                Catch ex As Exception
-                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-        End If
-    End Sub
-
-    Private Sub CheckBoxSalida1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBoxSalida1.CheckedChanged
-        If CheckBoxSalida1.Checked Then
-            'Si el puerto está abierto
-            If SerialPort.IsOpen Then
-                'Voy a intentar enviar la trama de activar la salida 0 del PLC
-                Try
-                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                    'Asigno un valor a cada byte
-                    'La trama es: 22 F1 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                    Trama_Saliente(0) = &H22
-                    Trama_Saliente(1) = &HF1
-                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                    'hasta el último componente de la matriz.
-                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-                Catch ex As Exception
-                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-        Else
-            'Si el puerto está abierto
-            If SerialPort.IsOpen Then
-                'Voy a intentar enviar la trama de activar la salida 0 del PLC
-                Try
-                    Dim Trama_Saliente As Byte() 'Declaro la matriz de bytes
-                    Trama_Saliente = New Byte(2) {} 'Asigno a la matriz 3 posiciones
-                    'Asigno un valor a cada byte
-                    'La trama es: 11 23 '@' >>> 34 y F2 son los dos bytes que vamos a transmitir
-                    Trama_Saliente(0) = &H11
-                    Trama_Saliente(1) = &H23
-                    Trama_Saliente(2) = &H40 'El &H40 representa el carácter '@'
-                    'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
-                    'hasta el último componente de la matriz.
-                    SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
-                Catch ex As Exception
-                    MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            End If
-        End If
-    End Sub
-
-    Private Sub SerialPort_DataReceived(sender As Object, e As SerialDataReceivedEventArgs) Handles SerialPort.DataReceived
+    Private Sub manejarDatosEntrantes(sender As Object, e As SerialDataReceivedEventArgs) Handles SerialPort.DataReceived
         Beep()
         'Defino el tamaño de la matriz de lectura, con el número de bytes,
         'presentes en el buffer de entrada, en el momento de la lectura
-        Trama_Entrante = New Byte(SerialPort.BytesToRead - 1) {}
-        'leemos la trama recibida y la guardamos en la matriz Trama_Entrante
-        SerialPort.Read(Trama_Entrante, 0, 2)
-        Me.Invoke(New EventHandler(AddressOf modificar))
-        'limpieza de buffers de entrada y salida
-        SerialPort.DiscardInBuffer()
-        SerialPort.DiscardOutBuffer()
+        With SerialPort
+            Trama_Entrante = New Byte(.BytesToRead - 1) {}
+            'leemos la trama recibida y la guardamos en la matriz Trama_Entrante
+            .Read(Trama_Entrante, 0, 2)
+            Me.Invoke(New EventHandler(AddressOf modificarSalidaPLC))
+            'limpieza de buffers de entrada y salida
+            .DiscardInBuffer()
+            .DiscardOutBuffer()
+        End With
     End Sub
 
-    Public Sub modificar()
-        If (Trama_Entrante(0) = &H22) And (Trama_Entrante(1) = &H33) Then
-            LabelEstadoEntrada0.BackColor = Color.Green
-        End If
-        If (Trama_Entrante(0)) = &H7B And (Trama_Entrante(1) = &H5D) Then
-            LabelEstadoEntrada0.BackColor = Color.Red
-        End If
-        If (Trama_Entrante(0) = &H33) And (Trama_Entrante(1) = &H44) Then
-            LabelEstadoEntrada1.BackColor = Color.Green
-        End If
-        If (Trama_Entrante(0)) = &H8C And (Trama_Entrante(1) = &H6E) Then
-            LabelEstadoEntrada1.BackColor = Color.Red
-        End If
-        If (Trama_Entrante(0) = &H44) And (Trama_Entrante(1) = &H55) Then
-            LabelEstadoEntrada2.BackColor = Color.Green
-        End If
-        If (Trama_Entrante(0)) = &H9D And (Trama_Entrante(1) = &H7F) Then
-            LabelEstadoEntrada2.BackColor = Color.Red
-        End If
+    Public Sub modificarSalidaPLC()
+        Select Case Trama_Entrante(0) And Trama_Entrante(1)
+            Case &H22 And &H33
+                LabelEstadoEntrada0.BackColor = Color.Green
+            Case &H7B And &H5D
+                LabelEstadoEntrada0.BackColor = Color.Red
+            Case &H33 And &H44
+                LabelEstadoEntrada1.BackColor = Color.Green
+            Case &H8C And &H6E
+                LabelEstadoEntrada1.BackColor = Color.Red
+            Case &H44 And &H55
+                LabelEstadoEntrada2.BackColor = Color.Green
+            Case &H9D And &H7F
+                LabelEstadoEntrada2.BackColor = Color.Red
+        End Select
     End Sub
 End Class

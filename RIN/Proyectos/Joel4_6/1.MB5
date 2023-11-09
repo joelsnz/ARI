@@ -1,0 +1,123 @@
+1 '----------------------------------------------------------------'
+2 'Definimos variables de posicionamiento para los puntos del palet'
+3 'como son las cuatro esquinas del mismo '
+4 '----------------------------------------------------------------'
+5 DEF POS P101
+6 DEF POS P102
+7 DEF POS P103
+8 DEF POS P201
+9 DEF POS P202
+10 DEF POS P203
+11 def pos altura1
+12 def pos altura2
+13 '----------------------------------------------------------------'
+14 'Definimos una variable de posición para una distancia '
+15 'de seguridad, desde la cual realizaremos las operaciones MVS '
+16 '----------------------------------------------------------------'
+17 DEF POS VecZ25
+18 DEF POS VecZ22
+19 '----------------------------------------------------------------'
+20 'Definimos variables enteras para poder realizar el bucle '
+21 'while / wend para el total de las piezas a paletizar. '
+22 '----------------------------------------------------------------'
+23 DEF INTE Piezas1
+24 DEF INTE Piezas2
+25 def inte isalt1
+26 def inte isalt2
+27 '----------------------------------------------------------------'
+28 'Definimos la variable para usarla en el bucle para while/wend '
+29 'asignando el palet y el contador de piezas '
+30 '----------------------------------------------------------------'
+31 DEF POS P70
+32 '----------------------------------------------------------------'
+33 'Asignamos valores a cada una de las posiciones de las esquinas '
+34 'del palet y a la distancia de seguridad '
+35 '----------------------------------------------------------------'
+36 P101 = P1Pal + (55,0,0,0,0,0)
+37 P102 = P1Pal + (0,-55,0,0,0,0)
+38 P103 = P1Pal + (55,-55,0,0,0,0)
+39 P201 = P2Pal + (55,0,0,0,0,0)
+40 P202 = P2Pal + (0,-110,0,0,0,0)
+41 P203 = P2Pal + (55,-110,0,0,0,0)
+42 VecZ25 = (0,0,+25,0,0,0)
+43 VecZ22 = (0,0,+22,0,0,0)
+44 '----------------------------------------------------------------'
+45 'Definimos la entrada de control del programa como detector de '
+46 'pieza al final de rampa. Dado por el bit 6 '
+47 '----------------------------------------------------------------'
+48 DEF IO COLOR = BIT, 900
+49 DEF IO PART_AV = BIT,6
+50 def io PM = bit, 3
+51 def io PR = bit, 5
+52 def io Q1 = bit, 2
+53 def io Q2 = bit, 3
+
+54 OVRD 30
+55 SPD 30
+56 '----------------------------------------------------------------'
+57 'Definimos el palet. '
+58 '----------------------------------------------------------------'
+59 DEF PLT 1, P1Pal,P101,P102,P103,2,2,1
+60 DEF PLT 2, P2Pal,P201,P202,P203,2,3,1
+61 *Inicio
+62 while PM = 0
+63 wend
+64 altura1 = (0,0,0,0,0,0)
+65 altura2 = (0,0,0,0,0,0)
+66 Piezas1 = 1
+67 Piezas2 = 1
+68 isalt1 = 1
+69 isalt2 = 1
+
+70 mov PSec
+71 hopen 1
+
+72 while PM = 0
+73 wend
+74 while PART_AV = 0
+75 wend
+
+76 mov PColor
+
+77 *PieceSelect
+78 if COLOR = 0 then
+79 	if Piezas1 < 4 and isalt1 = 0 then
+80 		P70 = (PLT 1, Piezas1) + altura1
+81 		Piezas1 = Piezas1 + 1
+82 	else 
+83 		if Piezas1 = 4 then
+84 			Piezas1 = 1
+85 			isalt1 = 1
+86 			altura1 = altura1 + VecZ22
+87 			goto *PieceSelect
+88 		endif
+89 	endif
+90 else
+91 	if Piezas2 < 4 and isalt2 = 0 then
+92 		P70 = (PLT 2, Piezas2) + altura2
+93 		Piezas2 = Piezas2 + 1
+94 	else
+95 		if Piezas2 = 6 then
+96 			Piezas2 = 1
+97 			isalt2 = 1
+98 			altura2 = altura2 + VecZ25
+99 			goto *PieceSelect
+100 		endif
+101 	endif
+102 endif
+
+103 mvr PColor, PInColor, PIn + VecZ25
+104 mvs PIn
+105 hclose 1
+106 dly 0.5
+107 mvs PIn + VecZ25
+108 mov P70 + VecZ25
+109 mvs P70
+110 hopen 1
+111 dly 0.5
+112 mvs P70 + VecZ25
+113 mov PSec
+114 goto *PieceSelect
+
+115 goto *Inicio
+116 End

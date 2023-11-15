@@ -7,10 +7,10 @@
 6 VecZ30 = (0,0,30,0,0,0)
 7 VecZ140 = (0,-100,140,0,0,0)
 
-8 def io S1 = bit, 3 'Pulsador marcha
-9 def io S2 = bit, 4 'Pulsador paro
-10 def io L1 = bit, 2 'Indicador luminoso Q1
-11 def io B1 = bit, 6 'Detector pieza rampa entrada
+8 def io S1 = bit, 8 'Pulsador marcha
+9 def io S2 = bit, 9 'Pulsador paro
+10 def io L1 = bit, 10 'Indicador luminoso Q1
+11 def io B1 = bit, 2 'Detector pieza rampa entrada
 
 12 spd 30
 13 ovrd 30

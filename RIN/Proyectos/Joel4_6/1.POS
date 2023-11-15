@@ -1,5 +1,5 @@
-DEF POS P2Pal=(300.30,-250.63,262.18,-180.00,0.00,90.00)(7,0) *// Posición Inicial del Palet
-DEF POS P1Pal=(0.30,-250.63,262.18,-180.00,0.00,90.00)(7,0) *// Posición Inicial del Palet
+DEF POS P2Pal=(380.30,130.63,262.18,-180.00,0.00,90.00)(7,0) *// Posición Inicial del Palet
+DEF POS P1Pal=(380.30,-100.63,262.18,-180.00,0.00,90.00)(7,0) *// Posición Inicial del Palet
 DEF POS PHome=(90.92,207.58,412.28,-180.00,0.00,-180.00)(7,0) *// Posición Accesible desde Cualquier Punto
 DEF POS PInColor=(176.24,64.82,210.25,-180.00,-0.00,-180.00)(7,0) *// Posición Intermedia entre PIn y PColor
 DEF POS PColor=(176.24,64.82,185.51,180.00,0.00,180.00)(7,0) *// Robot Detectando Color en Rampa de Entrada

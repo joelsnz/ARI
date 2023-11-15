@@ -52,72 +52,93 @@
 52 def io Q1 = bit, 2
 53 def io Q2 = bit, 3
 
-54 OVRD 30
-55 SPD 30
+54 OVRD 100
+55 SPD 500
 56 '----------------------------------------------------------------'
 57 'Definimos el palet. '
 58 '----------------------------------------------------------------'
 59 DEF PLT 1, P1Pal,P101,P102,P103,2,2,1
 60 DEF PLT 2, P2Pal,P201,P202,P203,2,3,1
-61 *Inicio
-62 while PM = 0
-63 wend
-64 altura1 = (0,0,0,0,0,0)
-65 altura2 = (0,0,0,0,0,0)
-66 Piezas1 = 1
-67 Piezas2 = 1
-68 isalt1 = 1
-69 isalt2 = 1
 
-70 mov PSec
-71 hopen 1
+61 altura1 = (0,0,0,0,0,0)
+62 altura2 = (0,0,0,0,0,0)
+63 Piezas1 = 1
+64 Piezas2 = 1
+65 isalt1 = 0
+66 isalt2 = 0
 
-72 while PM = 0
-73 wend
-74 while PART_AV = 0
-75 wend
+67 mov PSec
+68 hopen 1
 
-76 mov PColor
+69 *Inicio
 
-77 *PieceSelect
-78 if COLOR = 0 then
-79 	if Piezas1 < 4 and isalt1 = 0 then
-80 		P70 = (PLT 1, Piezas1) + altura1
-81 		Piezas1 = Piezas1 + 1
-82 	else 
-83 		if Piezas1 = 4 then
-84 			Piezas1 = 1
-85 			isalt1 = 1
-86 			altura1 = altura1 + VecZ22
-87 			goto *PieceSelect
-88 		endif
-89 	endif
-90 else
-91 	if Piezas2 < 4 and isalt2 = 0 then
-92 		P70 = (PLT 2, Piezas2) + altura2
-93 		Piezas2 = Piezas2 + 1
-94 	else
-95 		if Piezas2 = 6 then
-96 			Piezas2 = 1
-97 			isalt2 = 1
-98 			altura2 = altura2 + VecZ25
-99 			goto *PieceSelect
-100 		endif
-101 	endif
-102 endif
+70 while PM = 0
+71 wend
 
-103 mvr PColor, PInColor, PIn + VecZ25
-104 mvs PIn
-105 hclose 1
+72 *PieceSelect
+73 while PART_AV = 0
+74 wend
+
+75 mov PColor
+
+76 if COLOR = 1then
+77 	if Piezas1 <=4 then
+78 		P70 = (PLT 1, Piezas1) + altura1
+79 		Piezas1 = Piezas1 + 1
+80 	else 
+81 		Piezas1 = 1
+82 		isalt1 = 1
+83 		altura1 = altura1 + VecZ22
+84 		goto *PieceSelect
+85 	endif
+86 else
+87 	if Piezas2 <= 6 then
+88 		P70 = (PLT 2, Piezas2) + altura2
+89 		Piezas2 = Piezas2 + 1
+90 	else
+91 		Piezas2 = 1
+92 		isalt2 = 1
+93 		altura2 = altura2 + VecZ25
+94 		goto *PieceSelect
+95 	endif
+96 endif
+
+97 mvr PColor, PInColor, PIn + VecZ25
+98 mvs PIn
+99 hclose 1
+100 dly 0.5
+101 mvs PIn + VecZ25
+102 mov PSec
+103 mov P70 + VecZ25
+104 mvs P70
+105 hopen 1
 106 dly 0.5
-107 mvs PIn + VecZ25
-108 mov P70 + VecZ25
-109 mvs P70
-110 hopen 1
-111 dly 0.5
-112 mvs P70 + VecZ25
-113 mov PSec
-114 goto *PieceSelect
+107 mvs P70 + VecZ25
+108 mov PSec
 
-115 goto *Inicio
-116 End
+109 if Piezas1 = 5and isalt1 = 1 then
+110 	Q1 = 1
+111 	while PR = 0
+112 	wend
+113 	Q1 = 0
+114 	altura1 = (0,0,0,0,0,0)
+115 	Piezas1 = 1
+116 	isalt1 = 0
+117 	goto *Inicio
+118 endif
+
+119 if Piezas2= 7 and isalt2 = 1 then
+120 	Q2 = 1
+121 	while PR = 0
+122 	wend
+123 	Q2 = 0
+124 	altura2 = (0,0,0,0,0,0)
+125 	Piezas2 = 1
+126 	isalt2 = 0
+127 	goto *Inicio
+128 endif
+
+129 goto *PieceSelect
+
+130 goto *Inicio
+131 End

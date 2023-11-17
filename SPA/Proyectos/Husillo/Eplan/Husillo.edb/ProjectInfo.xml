@@ -28,7 +28,7 @@
  <Property name="Ultimo responsable: nombre de inicio de sesión" id="10022" index="0" type="7">joel0</Property>
  <Property name="Fecha de modificación" id="10023" index="0" type="14">1697475296</Property>
  <Property name="Última traducción: fecha" id="10024" index="0" type="14">1647517910</Property>
- <Property name="Fecha del día" id="10027" index="0" type="14">1697647598</Property>
+ <Property name="Fecha del día" id="10027" index="0" type="14">1700080974</Property>
  <Property name="Inicio de proyecto" id="10028" index="0" type="14">1697471943</Property>
  <Property name="Formatos de estructura principal" id="10029" index="0" type="7">4&#9;0&#9;0&#9;0&#9;0</Property>
  <Property name="Ambito especial" id="10034" index="0" type="15">de_DE@keine;en_US@None;nl_NL@geen;fr_FR@aucune;es_ES@ninguno;sv_SE@ingen;da_DK@ingen;zh_CN@无;ru_RU@нет;pl_PL@brak;pt_BR@nenhum;cs_CZ@žádné;it_IT@nessuna;hu_HU@nincs;pt_PT@nenhum;ko_KR@없음;ja_JP@なし;tr_TR@yok;ro_RO@niciunul/niciuna;zh_TW@無;</Property>
@@ -45,7 +45,7 @@
  <Property name="Formato de estructura de medios de explotación generales" id="10055" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cajas de aparatos" id="10056" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura para técnica PLC / bus" id="10057" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
- <Property name="Hora del día" id="10058" index="0" type="14">1697647598</Property>
+ <Property name="Hora del día" id="10058" index="0" type="14">1700080974</Property>
  <Property name="Formato de estructura de regletas de bornes" id="10059" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de conectores" id="10060" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cables" id="10061" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>

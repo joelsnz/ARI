@@ -1,0 +1,134 @@
+1 'Posiciones para la construcción del palet
+2 DEF POS P101
+3 DEF POS P102
+4 DEF POS P103
+5 DEF POS P70
+6 def pos VecZ22
+7 def pos altura
+
+8 'Cálculo de las posiciones del palet
+9 P101 = P1Pal + (52,0,0,0,0,0)
+10 P102 = P1Pal + (0,-92,0,0,0,0)
+11 P103 = P1Pal + (52,-92,0,0,0,0)
+12 VecZ22 = (0,0,22,0,0,0)
+
+13 'Definición del palet
+14 DEF PLT 1, P1Pal,P101,P102,P103,2,3,1
+
+15 'Definición de entradas y salidas físicas
+16 DEF IO COLOR = BIT, 900
+17 DEF IO PART_AV = BIT,6
+18 def io PM = bit, 3
+19 def io PP = bit, 4
+20 def io PR = bit, 5
+21 def io QPM = bit, 0
+22 def io Q1 = bit, 2
+
+23 'Parámetros del palet
+24 def inte piezas
+25 def inte num_alt
+
+26 'Interrupción por pulsación de paro
+27 def act 1, PP = 0 gosub *sub_paro
+28 act 1 = 1
+
+29 OVRD 100
+30 SPD 500
+
+31 'Primera pulsación de PM para iniciar el proceso
+32 while PM = 0
+33 wend
+34 mov PSec
+
+35 *inicio
+
+36 QPM = 1
+37 hopen 1
+
+38 piezas = 1
+39 num_alt = 0
+40 altura = (0,0,0,0,0,0)
+
+41 while PM = 0
+42 wend
+43 QPM = 0
+
+44 'Entrar al bucle hasta que se termine de construir el palet
+45 while num_alt <= 2
+46 	'Esperar a que haya pieza de entrada
+47 	while PART_AV = 0
+48 	wend
+49 	
+50 	'Si la pieza es de color, deshecharla
+51 	'Si la pieza es negra, ponerla en el palet
+52 	mov PColor
+53 	if COLOR then 
+54 		gosub *waste
+55 	else 
+56 		gosub *palet
+57 	endif
+58 wend
+
+59 'Encender piloto y bloquear programa hasta que se pulse PR
+60 Q1 = 1
+61 while PR = 0
+62 wend
+63 Q1 = 0
+64 	
+65 goto *inicio
+66 End
+
+67 'Encender Q1 y esperar a que se pulse paro de nuevo
+68 *sub_paro
+69 	Q1 = 1
+70 	while PP
+71  	wend
+72  	Q1 = 0
+73 return 0
+
+74 'Construir el palet
+75 *palet
+76 	'Calcular posición de la próxima pieza
+77 	*crearPosicion
+78 	
+79 	P70 = (PLT 1, piezas) + altura
+
+80 	if piezas < 6 then goto *SaltoPiezas
+81 	
+82 	piezas = 0
+83 	num_alt = num_alt + 1
+84 	altura = altura + VecZ22
+85  		
+86  	*SaltoPiezas
+
+87 	piezas = piezas + 1
+88  	
+89 	'Colocar la pieza en la posición calculada
+90 	mvr PColor, PInColor, PIn + VecZ22
+91 	mvs PIn
+92 	hclose 1
+93 	dly 0.5
+94 	mvs PIn + VecZ22
+95 	mov PSec
+96 	mvr PSec, PSec1Pal, P70 + VecZ22
+97 	mvs P70
+98 	hopen 1
+99 	dly 0.5
+100 	mvs P70 + VecZ22
+101 	mov PSec
+102 return
+
+103 'Enviar la pieza a la rampa de salida
+104 *waste
+105 	mvr PColor, PInColor, PIn + VecZ22
+106 	mvs PIn
+107 	hclose 1
+108 	dly 0.5
+109 	mvs PIn + VecZ22
+110 	mvr PIn + VecZ22, PHome, POut + VecZ22
+111 	mvs POut
+112 	hopen 1
+113 	dly 0.5
+114 	mvs POut + VecZ22
+115 	mvr POut + VecZ22, PHome, PSec
+116 return

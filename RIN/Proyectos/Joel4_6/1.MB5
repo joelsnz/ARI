@@ -48,97 +48,112 @@
 48 DEF IO COLOR = BIT, 900
 49 DEF IO PART_AV = BIT,6
 50 def io PM = bit, 3
-51 def io PR = bit, 5
-52 def io Q1 = bit, 2
-53 def io Q2 = bit, 3
+51 def io PP = bit, 4
+52 def io PR = bit, 5
+53 def io Q1 = bit, 2
+54 def io Q2 = bit, 3
 
-54 OVRD 100
-55 SPD 500
-56 '----------------------------------------------------------------'
-57 'Definimos el palet. '
-58 '----------------------------------------------------------------'
-59 DEF PLT 1, P1Pal,P101,P102,P103,2,2,1
-60 DEF PLT 2, P2Pal,P201,P202,P203,2,3,1
+55 def act 1, PP = 0 gosub *sub_paro
+56 act 1 = 1
 
-61 altura1 = (0,0,0,0,0,0)
-62 altura2 = (0,0,0,0,0,0)
-63 Piezas1 = 1
-64 Piezas2 = 1
-65 isalt1 = 0
-66 isalt2 = 0
+57 OVRD 100
+58 SPD 500
+59 '----------------------------------------------------------------'
+60 'Definimos el palet. '
+61 '----------------------------------------------------------------'
+62 DEF PLT 1, P1Pal,P101,P102,P103,2,2,1
+63 DEF PLT 2, P2Pal,P201,P202,P203,2,3,1
 
-67 mov PSec
-68 hopen 1
+64 altura1 = (0,0,0,0,0,0)
+65 altura2 = (0,0,0,0,0,0)
+66 Piezas1 = 1
+67 Piezas2 = 1
+68 isalt1 = 0
+69 isalt2 = 0
 
-69 *Inicio
+70 mov PSec
+71 hopen 1
 
-70 while PM = 0
-71 wend
+72 *Inicio
 
-72 *PieceSelect
-73 while PART_AV = 0
+73 while PM = 0
 74 wend
 
-75 mov PColor
+75 *Inicio2
 
-76 if COLOR = 1then
-77 	if Piezas1 <=4 then
-78 		P70 = (PLT 1, Piezas1) + altura1
-79 		Piezas1 = Piezas1 + 1
-80 	else 
-81 		Piezas1 = 1
-82 		isalt1 = 1
-83 		altura1 = altura1 + VecZ22
-84 		goto *PieceSelect
-85 	endif
-86 else
-87 	if Piezas2 <= 6 then
-88 		P70 = (PLT 2, Piezas2) + altura2
-89 		Piezas2 = Piezas2 + 1
-90 	else
-91 		Piezas2 = 1
-92 		isalt2 = 1
-93 		altura2 = altura2 + VecZ25
-94 		goto *PieceSelect
-95 	endif
-96 endif
+76 gosub *GenerarPosicion
 
-97 mvr PColor, PInColor, PIn + VecZ25
-98 mvs PIn
-99 hclose 1
-100 dly 0.5
-101 mvs PIn + VecZ25
-102 mov PSec
-103 mov P70 + VecZ25
-104 mvs P70
-105 hopen 1
-106 dly 0.5
-107 mvs P70 + VecZ25
-108 mov PSec
+77 mvr PColor, PInColor, PIn + VecZ25
+78 mvs PIn
+79 hclose 1
+80 dly 0.5
+81 mvs PIn + VecZ25
+82 mov PSec
+83 mov P70 + VecZ25
+84 mvs P70
+85 hopen 1
+86 dly 0.5
+87 mvs P70 + VecZ25
+88 mov PSec
 
-109 if Piezas1 = 5and isalt1 = 1 then
-110 	Q1 = 1
-111 	while PR = 0
-112 	wend
-113 	Q1 = 0
-114 	altura1 = (0,0,0,0,0,0)
-115 	Piezas1 = 1
-116 	isalt1 = 0
-117 	goto *Inicio
-118 endif
+89 if Piezas1 < 5 and isalt1 < 1 then goto *Salto1
+90 	Q1 = 1
+91 	while PR = 0
+92 	wend
+93 	Q1 = 0
+94 	altura1 = (0,0,0,0,0,0)
+95 	Piezas1 = 1
+96 	isalt1 = 0
+97 	goto *Inicio
+98 *Salto1
 
-119 if Piezas2= 7 and isalt2 = 1 then
-120 	Q2 = 1
-121 	while PR = 0
-122 	wend
-123 	Q2 = 0
-124 	altura2 = (0,0,0,0,0,0)
-125 	Piezas2 = 1
-126 	isalt2 = 0
-127 	goto *Inicio
-128 endif
+99 if Piezas2 < 7 and isalt2 < 1 then goto *Salto2
+100 	Q2 = 1
+101 	while PR = 0
+102 	wend
+103 	Q2 = 0
+104 	altura2 = (0,0,0,0,0,0)
+105 	Piezas2 = 1
+106 	isalt2 = 0
+107 	goto *Inicio
+108 *Salto2
 
-129 goto *PieceSelect
+109 goto *PieceSelect
 
-130 goto *Inicio
-131 End
+110 goto *Inicio
+111 End
+
+112 *sub_paro
+113 	Q1 = 1
+114 	while PP
+115 	wend
+116 	Q1 = 0
+117 return 0
+
+118 *GenerarPosicion
+119 	*PieceSelect
+120 	while PART_AV = 0
+121 	wend
+
+122 	mov PColor
+123 	
+124 	if COLOR = 0 then goto *SaltoColor
+125 		if Piezas1 > 4 then goto *SaltoNegras
+126 			P70 = (PLT 1, Piezas1) + altura1
+127 			Piezas1 = Piezas1 + 1
+128 		*SaltoNegras
+129 			Piezas1 = 1
+130 			isalt1 = 1
+131 			altura1 = altura1 + VecZ22
+132 			goto *Inicio2
+133 	*SaltoColor
+134 		if Piezas2 > 6 then goto *SaltoRojas
+135 			P70 = (PLT 2, Piezas2) + altura2
+136 			Piezas2 = Piezas2 + 1
+137 		*SaltoRojas
+138 			Piezas2 = 1
+139 			isalt2 = 1
+140 			altura2 = altura2 + VecZ25
+141 			goto *Inicio2
+142 return 0;
+143 	

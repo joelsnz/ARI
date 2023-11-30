@@ -1,0 +1,12 @@
+C:\Users\joel\Desktop\ExamenCIN\bin\Debug\ExamenCIN.exe.config
+C:\Users\joel\Desktop\ExamenCIN\bin\Debug\ExamenCIN.exe
+C:\Users\joel\Desktop\ExamenCIN\bin\Debug\ExamenCIN.pdb
+C:\Users\joel\Desktop\ExamenCIN\bin\Debug\ExamenCIN.xml
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.vbproj.AssemblyReference.cache
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.Form1.resources
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.Resources.resources
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.vbproj.GenerateResource.cache
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.vbproj.CoreCompileInputs.cache
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.exe
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.xml
+C:\Users\joel\Desktop\ExamenCIN\obj\Debug\ExamenCIN.pdb

@@ -6,7 +6,7 @@ en el 0 y los contenidos de estos registros son:
 0000 -> BEBE
 
 Trama de envío: 01 03 00 00 00 02 C4 0B
-Trama de recepción: 01 03 04 CA CA BE BE 14 05
+Trama de recepción: 01 03 04 BE BE CA CA 68 C8
 
 2.- El maestro quiere leer 5 bits de entrada del esclavo con número 
 de nodo 01. La dirección del primer bit a leer es el 1308 y en el 
@@ -20,7 +20,7 @@ bits a leer en el esclavo son:
 1308 -> 1
 
 Trama de envío: 01 02 13 07 00 05 0D 4C
-Trama de recepción: 01 02 01 98 A0 22
+Trama de recepción: 01 02 01 13 E0 45
 
 3.- El maestro quiere leer los registros de entrada, 0123, 0122 y 
 0121 de un esclavo con número de nodo 07. El esclavo empieza con 
@@ -31,19 +31,22 @@ registros son:
 0122 -> A45B
 0121 -> 98FF
 
-Trama de envío:
-Trama de recepción:
+Trama de envío: 07 04 00 78 00 03
+Trama de recepción: 07 04 06 98 FF A4 5B 23 56 88 D2
 
 4.- El maestro quiere leer 9 bits de salida del esclavo con 
 número de nodo 0B. La dirección del primer bit a leer es el 
 0006 y en el esclavo, se enumeran las direcciones desde el 0. 
 Los valores de los bits a leeren el esclavo son:
 
-1312 -> 1
-1311 -> 0
-1310 -> 0
-1309 -> 1
-1308 -> 1
+0006 -> 1
+0007 -> 0
+0008 -> 0
+0009 -> 1
+0010 -> 0
+0011 -> 1
+0012 -> 0
+0013 -> 1
 
-Trama de envío:
-Trama de recepción:
+Trama de envío: 0B 01 00 06 00 09 1C A7
+Trama de recepción: 0B 01 02 A9 01 9E 6D

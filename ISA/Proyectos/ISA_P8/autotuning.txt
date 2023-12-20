@@ -1,3 +1,8 @@
 k -> 22,78
 Ti -> 20,64
 Td -> 3,61
+
+Tiempo de muestreo -> 100ms
+Tiempo de muestreo algoritmo PID -> 500ms
+Tiempo conexión mínimo -> 0.0s
+Tiempo desconexión mínimo -> 0.0s

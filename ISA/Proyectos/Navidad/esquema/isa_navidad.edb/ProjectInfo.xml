@@ -26,9 +26,9 @@
  <Property name="Autor" id="10020" index="0" type="7">Joel Sanz Martí</Property>
  <Property name="Fecha de creación" id="10021" index="0" type="14">1703615512</Property>
  <Property name="Ultimo responsable: nombre de inicio de sesión" id="10022" index="0" type="7">joel0</Property>
- <Property name="Fecha de modificación" id="10023" index="0" type="14">1703883088</Property>
+ <Property name="Fecha de modificación" id="10023" index="0" type="14">1704651060</Property>
  <Property name="Última traducción: fecha" id="10024" index="0" type="14">1647517910</Property>
- <Property name="Fecha del día" id="10027" index="0" type="14">1703970105</Property>
+ <Property name="Fecha del día" id="10027" index="0" type="14">1704651065</Property>
  <Property name="Inicio de proyecto" id="10028" index="0" type="14">1703615541</Property>
  <Property name="Formatos de estructura principal" id="10029" index="0" type="7">4&#9;0&#9;0&#9;0&#9;0</Property>
  <Property name="Ambito especial" id="10034" index="0" type="15">de_DE@keine;en_US@None;nl_NL@geen;fr_FR@aucune;es_ES@ninguno;sv_SE@ingen;da_DK@ingen;zh_CN@无;ru_RU@нет;pl_PL@brak;pt_BR@nenhum;cs_CZ@žádné;it_IT@nessuna;hu_HU@nincs;pt_PT@nenhum;ko_KR@없음;ja_JP@なし;tr_TR@yok;ro_RO@niciunul/niciuna;zh_TW@無;</Property>
@@ -36,7 +36,7 @@
  <Property name="Ultimo número de compilación EPLAN utilizado" id="10044" index="0" type="7">19351</Property>
  <Property name="Ruta de proyecto (completa)" id="10045" index="0" type="7">C:\Users\joel0\Documents\ARI\ISA\Proyectos\Navidad\esquema</Property>
  <Property name="Hora de creación" id="10046" index="0" type="7">19:31:52</Property>
- <Property name="Hora de modificación" id="10047" index="0" type="7">21:51:28</Property>
+ <Property name="Hora de modificación" id="10047" index="0" type="7">19:11:00</Property>
  <Property name="Última traducción: hora" id="10048" index="0" type="7">12:51:50</Property>
  <Property name="Formato de estructura de páginas" id="10050" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;10006&gt;&lt;11012&gt;&lt;11013&gt;</Property>
  <Property name="Formato de estructura de puntos de interrupción" id="10051" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;</Property>
@@ -45,7 +45,7 @@
  <Property name="Formato de estructura de medios de explotación generales" id="10055" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cajas de aparatos" id="10056" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura para técnica PLC / bus" id="10057" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
- <Property name="Hora del día" id="10058" index="0" type="14">1703970105</Property>
+ <Property name="Hora del día" id="10058" index="0" type="14">1704651065</Property>
  <Property name="Formato de estructura de regletas de bornes" id="10059" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de conectores" id="10060" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cables" id="10061" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
@@ -217,9 +217,9 @@
  <Property name="Autor: País" id="10239" index="0" type="7">Deutschland</Property>
  <Property name="Autor: Teléfono" id="10240" index="0" type="7">+49 (0)2173 - 39 64 - 0</Property>
  <Property name="Autor: Fax" id="10241" index="0" type="7">+49 (0)2173 - 39 64 - 25</Property>
- <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="1" type="14">1703786191</Property>
+ <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="1" type="14">1704641496</Property>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="2" type="14"/>
- <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="3" type="14">1703617679</Property>
+ <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="3" type="14">1703880680</Property>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="4" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="5" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="6" type="14"/>
@@ -233,7 +233,7 @@
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="14" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="15" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="16" type="14"/>
- <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="17" type="14">1696062812</Property>
+ <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="17" type="14">1696062837</Property>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="18" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="19" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="20" type="14"/>
@@ -280,9 +280,9 @@
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="61" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="62" type="14"/>
  <Property name="Ultima fecha de modificación por tipo de página" id="10250" index="63" type="14"/>
- <Property name="Ultima hora de modificación por tipo de página" id="10251" index="1" type="7">18:56:31</Property>
+ <Property name="Ultima hora de modificación por tipo de página" id="10251" index="1" type="7">16:31:36</Property>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="2" type="7"/>
- <Property name="Ultima hora de modificación por tipo de página" id="10251" index="3" type="7">20:07:59</Property>
+ <Property name="Ultima hora de modificación por tipo de página" id="10251" index="3" type="7">21:11:20</Property>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="4" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="5" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="6" type="7"/>
@@ -296,7 +296,7 @@
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="14" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="15" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="16" type="7"/>
- <Property name="Ultima hora de modificación por tipo de página" id="10251" index="17" type="7">10:33:32</Property>
+ <Property name="Ultima hora de modificación por tipo de página" id="10251" index="17" type="7">10:33:57</Property>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="18" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="19" type="7"/>
  <Property name="Ultima hora de modificación por tipo de página" id="10251" index="20" type="7"/>
@@ -363,7 +363,14 @@
  <Property name="Internal: Mechanic format description" id="10434" index="0" type="15">##_##@703/SchemeDataProject;</Property>
  <Property name="Colocar tipo de documento al principio del nombre de página" id="10450" index="0" type="1">0</Property>
  <Property name="Idioma de origen" id="10500" index="0" type="4">27</Property>
- <Property name="Copia de seguridad de datos: método" id="10514" index="0" type="4">-1</Property>
+ <Property name="Copia de seguridad de datos: salvaguardar por completo" id="10510" index="0" type="1">1</Property>
+ <Property name="Copia de seguridad de datos: salvaguardar documentos externos" id="10511" index="0" type="1">1</Property>
+ <Property name="Copia de seguridad de datos: salvaguardar ficheros de imágenes" id="10512" index="0" type="1">1</Property>
+ <Property name="Copia de seguridad de datos: reorganizar proyecto" id="10513" index="0" type="1">0</Property>
+ <Property name="Copia de seguridad de datos: método" id="10514" index="0" type="4">0</Property>
+ <Property name="Copia de seguridad de datos: medio de seguridad" id="10515" index="0" type="4">0</Property>
+ <Property name="Copia de seguridad de datos: tamaño de pieza por e-mail en MB" id="10516" index="0" type="6">0</Property>
+ <Property name="Copia de seguridad de datos: directorio de seguridad" id="10517" index="0" type="7">$(MD_PROJECTS)\Proyectos\Navidad\entrega</Property>
  <Property name="Internal: Use defined working sections" id="10530" index="0" type="1">0</Property>
  <Property name="Propiedad de bloque: Formato (Punto de interrupción)" id="10609" index="5" type="7">[20221&lt;20010,0,0,0,0,0,0,0,0,de_DE,0,0,0,0,0,0&gt;]-[20222,1&lt;4&lt;11037,0,0,0,0,0,0,0,0,de_DE,0,0,0,0,0,5&gt;&gt;][20222,1&lt;4&lt;11042,0,0,0,0,0,0,0,0,de_DE,0,0,0,0,0,0&gt;&gt;]-[20222,1&lt;20221&lt;19006,0,0,0,0,0,0,0,0,de_DE,0,0,0,0,0,0&gt;&gt;]/[20222,1&lt;20221&lt;19005,0,0,0,0,0,0,0,0,de_DE,0,0,0,0,0,0&gt;&gt;]</Property>
  <Property name="Propiedad de bloque: Texto sustitutorio" id="10660" index="5" type="7">=│??_??@0;│??_??@E;║=│??_??@2;│??_??@H;║=│??_??@3;│??_??@P;║=│??_??@4;│??_??@C;║=│??_??@5;│??_??@L;║=│??_??@6;│??_??@V;║=│??_??@7;│??_??@F;║=│??_??@8;│??_??@K;║=│??_??@9;│??_??@G;</Property>

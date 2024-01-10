@@ -22,6 +22,7 @@ Partial Class Form1
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox_Flujo_de_Tramas = New System.Windows.Forms.GroupBox()
         Me.Button_Limpiar_TextBox = New System.Windows.Forms.Button()
         Me.TextBox_Trama_Recibida = New System.Windows.Forms.TextBox()
@@ -34,13 +35,14 @@ Partial Class Form1
         Me.PictureBox_Estado = New System.Windows.Forms.PictureBox()
         Me.ComboBox_Puertos = New System.Windows.Forms.ComboBox()
         Me.GroupBox_Variador = New System.Windows.Forms.GroupBox()
-        Me.Button_Run_Backward = New System.Windows.Forms.Button()
-        Me.Button_Stop = New System.Windows.Forms.Button()
+        Me.Label_Frecuencia_Leida = New System.Windows.Forms.Label()
+        Me.Button_Leer_Frecuencia = New System.Windows.Forms.Button()
         Me.Button_Run_Forward = New System.Windows.Forms.Button()
+        Me.Button_Stop = New System.Windows.Forms.Button()
+        Me.Button_Run_Backward = New System.Windows.Forms.Button()
         Me.ComboBox_Frecuencias = New System.Windows.Forms.ComboBox()
         Me.Label_Frecuencias = New System.Windows.Forms.Label()
-        Me.Button_Leer_Frecuencia = New System.Windows.Forms.Button()
-        Me.Label_Frecuencia_Leida = New System.Windows.Forms.Label()
+        Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
         Me.GroupBox_Flujo_de_Tramas.SuspendLayout()
         CType(Me.PictureBox_Estado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox_Variador.SuspendLayout()
@@ -154,9 +156,9 @@ Partial Class Form1
         '
         Me.GroupBox_Variador.Controls.Add(Me.Label_Frecuencia_Leida)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Leer_Frecuencia)
-        Me.GroupBox_Variador.Controls.Add(Me.Button_Run_Backward)
-        Me.GroupBox_Variador.Controls.Add(Me.Button_Stop)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Run_Forward)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Stop)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Run_Backward)
         Me.GroupBox_Variador.Controls.Add(Me.ComboBox_Frecuencias)
         Me.GroupBox_Variador.Controls.Add(Me.Label_Frecuencias)
         Me.GroupBox_Variador.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -167,14 +169,32 @@ Partial Class Form1
         Me.GroupBox_Variador.TabStop = False
         Me.GroupBox_Variador.Text = "Variador MX2"
         '
-        'Button_Run_Backward
+        'Label_Frecuencia_Leida
         '
-        Me.Button_Run_Backward.Location = New System.Drawing.Point(656, 28)
-        Me.Button_Run_Backward.Name = "Button_Run_Backward"
-        Me.Button_Run_Backward.Size = New System.Drawing.Size(134, 33)
-        Me.Button_Run_Backward.TabIndex = 12
-        Me.Button_Run_Backward.Text = "RUN >>"
-        Me.Button_Run_Backward.UseVisualStyleBackColor = True
+        Me.Label_Frecuencia_Leida.AutoSize = True
+        Me.Label_Frecuencia_Leida.Location = New System.Drawing.Point(985, 37)
+        Me.Label_Frecuencia_Leida.Name = "Label_Frecuencia_Leida"
+        Me.Label_Frecuencia_Leida.Size = New System.Drawing.Size(41, 25)
+        Me.Label_Frecuencia_Leida.TabIndex = 14
+        Me.Label_Frecuencia_Leida.Text = "Hz"
+        '
+        'Button_Leer_Frecuencia
+        '
+        Me.Button_Leer_Frecuencia.Location = New System.Drawing.Point(821, 28)
+        Me.Button_Leer_Frecuencia.Name = "Button_Leer_Frecuencia"
+        Me.Button_Leer_Frecuencia.Size = New System.Drawing.Size(158, 33)
+        Me.Button_Leer_Frecuencia.TabIndex = 13
+        Me.Button_Leer_Frecuencia.Text = "Frecuencia?"
+        Me.Button_Leer_Frecuencia.UseVisualStyleBackColor = True
+        '
+        'Button_Run_Forward
+        '
+        Me.Button_Run_Forward.Location = New System.Drawing.Point(656, 28)
+        Me.Button_Run_Forward.Name = "Button_Run_Forward"
+        Me.Button_Run_Forward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Run_Forward.TabIndex = 12
+        Me.Button_Run_Forward.Text = "RUN >>"
+        Me.Button_Run_Forward.UseVisualStyleBackColor = True
         '
         'Button_Stop
         '
@@ -185,14 +205,14 @@ Partial Class Form1
         Me.Button_Stop.Text = "STOP"
         Me.Button_Stop.UseVisualStyleBackColor = True
         '
-        'Button_Run_Forward
+        'Button_Run_Backward
         '
-        Me.Button_Run_Forward.Location = New System.Drawing.Point(376, 28)
-        Me.Button_Run_Forward.Name = "Button_Run_Forward"
-        Me.Button_Run_Forward.Size = New System.Drawing.Size(134, 33)
-        Me.Button_Run_Forward.TabIndex = 10
-        Me.Button_Run_Forward.Text = "<< RUN"
-        Me.Button_Run_Forward.UseVisualStyleBackColor = True
+        Me.Button_Run_Backward.Location = New System.Drawing.Point(376, 28)
+        Me.Button_Run_Backward.Name = "Button_Run_Backward"
+        Me.Button_Run_Backward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Run_Backward.TabIndex = 10
+        Me.Button_Run_Backward.Text = "<< RUN"
+        Me.Button_Run_Backward.UseVisualStyleBackColor = True
         '
         'ComboBox_Frecuencias
         '
@@ -211,23 +231,8 @@ Partial Class Form1
         Me.Label_Frecuencias.TabIndex = 10
         Me.Label_Frecuencias.Text = "Frecuencias (Hz)"
         '
-        'Button_Leer_Frecuencia
+        'SerialPort
         '
-        Me.Button_Leer_Frecuencia.Location = New System.Drawing.Point(821, 28)
-        Me.Button_Leer_Frecuencia.Name = "Button_Leer_Frecuencia"
-        Me.Button_Leer_Frecuencia.Size = New System.Drawing.Size(158, 33)
-        Me.Button_Leer_Frecuencia.TabIndex = 13
-        Me.Button_Leer_Frecuencia.Text = "Frecuencia?"
-        Me.Button_Leer_Frecuencia.UseVisualStyleBackColor = True
-        '
-        'Label_Frecuencia_Leida
-        '
-        Me.Label_Frecuencia_Leida.AutoSize = True
-        Me.Label_Frecuencia_Leida.Location = New System.Drawing.Point(985, 31)
-        Me.Label_Frecuencia_Leida.Name = "Label_Frecuencia_Leida"
-        Me.Label_Frecuencia_Leida.Size = New System.Drawing.Size(41, 25)
-        Me.Label_Frecuencia_Leida.TabIndex = 14
-        Me.Label_Frecuencia_Leida.Text = "Hz"
         '
         'Form1
         '
@@ -260,10 +265,11 @@ Partial Class Form1
     Friend WithEvents TextBox_Trama_Enviada As TextBox
     Friend WithEvents GroupBox_Variador As GroupBox
     Friend WithEvents Label_Frecuencias As Label
-    Friend WithEvents Button_Run_Backward As Button
-    Friend WithEvents Button_Stop As Button
     Friend WithEvents Button_Run_Forward As Button
+    Friend WithEvents Button_Stop As Button
+    Friend WithEvents Button_Run_Backward As Button
     Friend WithEvents ComboBox_Frecuencias As ComboBox
     Friend WithEvents Label_Frecuencia_Leida As Label
     Friend WithEvents Button_Leer_Frecuencia As Button
+    Friend WithEvents SerialPort As IO.Ports.SerialPort
 End Class

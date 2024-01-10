@@ -41,7 +41,7 @@
         Dim result As String
         result = ""
         For Each componente As Byte In trama
-            result = result + String.Format("(0:X2) ", componente)
+            result = result + String.Format("{0:X2} ", componente)
         Next
         Return result
     End Function

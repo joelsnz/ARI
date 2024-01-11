@@ -330,7 +330,7 @@ Public Class Form1
 
     Private Sub Button_Leer_Frecuencia_Click(sender As Object, e As EventArgs) Handles Button_Leer_Frecuencia.Click
         'Ajustamos la sensibilidad del datareceived
-        SerialPort.ReceivedBytesThreshold = 8
+        SerialPort.ReceivedBytesThreshold = 9
 
         If SerialPort.IsOpen Then
             Trama_Saliente = New Byte(7) {} 'Asigno a la matriz de 13 posiciones
@@ -340,6 +340,90 @@ Public Class Form1
             Trama_Saliente(3) = &H0
             Trama_Saliente(4) = &H0
             Trama_Saliente(5) = &H2
+            Dim crc As Byte() = Calculo_CRC(Trama_Saliente) 'Call CRC Calculator
+            Trama_Saliente(6) = crc(0) 'Error check Lo.
+            Trama_Saliente(7) = crc(1) 'Error check Hi.
+
+            Try
+                'Mostramos la trama en un TextBox
+                TextBox_Trama_Enviada.Text = Conversor_tramaBytes_a_tramaString(Trama_Saliente)
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button_Run_Click(sender As Object, e As EventArgs) Handles Button_Run.Click
+        'Ajustamos la sensibilidad del datareceived
+        SerialPort.ReceivedBytesThreshold = 8
+
+        If SerialPort.IsOpen Then
+            Trama_Saliente = New Byte(7) {} 'Asigno a la matriz de 13 posiciones
+            Trama_Saliente(0) = &H1
+            Trama_Saliente(1) = &H5
+            Trama_Saliente(2) = &H0
+            Trama_Saliente(3) = &H0
+            Trama_Saliente(4) = &HFF
+            Trama_Saliente(5) = &H0
+            Dim crc As Byte() = Calculo_CRC(Trama_Saliente) 'Call CRC Calculator
+            Trama_Saliente(6) = crc(0) 'Error check Lo.
+            Trama_Saliente(7) = crc(1) 'Error check Hi.
+
+            Try
+                'Mostramos la trama en un TextBox
+                TextBox_Trama_Enviada.Text = Conversor_tramaBytes_a_tramaString(Trama_Saliente)
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button_Forward_Click(sender As Object, e As EventArgs) Handles Button_Forward.Click
+        'Ajustamos la sensibilidad del datareceived
+        SerialPort.ReceivedBytesThreshold = 8
+
+        If SerialPort.IsOpen Then
+            Trama_Saliente = New Byte(7) {} 'Asigno a la matriz de 13 posiciones
+            Trama_Saliente(0) = &H1
+            Trama_Saliente(1) = &H5
+            Trama_Saliente(2) = &H0
+            Trama_Saliente(3) = &H1
+            Trama_Saliente(4) = &HFF
+            Trama_Saliente(5) = &H0
+            Dim crc As Byte() = Calculo_CRC(Trama_Saliente) 'Call CRC Calculator
+            Trama_Saliente(6) = crc(0) 'Error check Lo.
+            Trama_Saliente(7) = crc(1) 'Error check Hi.
+
+            Try
+                'Mostramos la trama en un TextBox
+                TextBox_Trama_Enviada.Text = Conversor_tramaBytes_a_tramaString(Trama_Saliente)
+                'Enviamos la trama de bytes por el puerto. Desde el componente 0 de la matriz
+                'hasta el último componente de la matriz
+                SerialPort.Write(Trama_Saliente, 0, Trama_Saliente.Length) 'Enviar trama
+            Catch ex As Exception
+                MessageBox.Show(Me, ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End If
+    End Sub
+
+    Private Sub Button_Backward_Click(sender As Object, e As EventArgs) Handles Button_Backward.Click
+        'Ajustamos la sensibilidad del datareceived
+        SerialPort.ReceivedBytesThreshold = 8
+
+        If SerialPort.IsOpen Then
+            Trama_Saliente = New Byte(7) {} 'Asigno a la matriz de 13 posiciones
+            Trama_Saliente(0) = &H1
+            Trama_Saliente(1) = &H5
+            Trama_Saliente(2) = &H0
+            Trama_Saliente(3) = &H1
+            Trama_Saliente(4) = &H0
+            Trama_Saliente(5) = &H0
             Dim crc As Byte() = Calculo_CRC(Trama_Saliente) 'Call CRC Calculator
             Trama_Saliente(6) = crc(0) 'Error check Lo.
             Trama_Saliente(7) = crc(1) 'Error check Hi.

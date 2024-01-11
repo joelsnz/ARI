@@ -43,6 +43,9 @@ Partial Class Form1
         Me.ComboBox_Frecuencias = New System.Windows.Forms.ComboBox()
         Me.Label_Frecuencias = New System.Windows.Forms.Label()
         Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
+        Me.Button_Forward = New System.Windows.Forms.Button()
+        Me.Button_Run = New System.Windows.Forms.Button()
+        Me.Button_Backward = New System.Windows.Forms.Button()
         Me.GroupBox_Flujo_de_Tramas.SuspendLayout()
         CType(Me.PictureBox_Estado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox_Variador.SuspendLayout()
@@ -154,6 +157,9 @@ Partial Class Form1
         '
         'GroupBox_Variador
         '
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Forward)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Run)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Backward)
         Me.GroupBox_Variador.Controls.Add(Me.Label_Frecuencia_Leida)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Leer_Frecuencia)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Run_Forward)
@@ -164,7 +170,7 @@ Partial Class Form1
         Me.GroupBox_Variador.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox_Variador.Location = New System.Drawing.Point(12, 203)
         Me.GroupBox_Variador.Name = "GroupBox_Variador"
-        Me.GroupBox_Variador.Size = New System.Drawing.Size(1042, 76)
+        Me.GroupBox_Variador.Size = New System.Drawing.Size(1042, 106)
         Me.GroupBox_Variador.TabIndex = 1
         Me.GroupBox_Variador.TabStop = False
         Me.GroupBox_Variador.Text = "Variador MX2"
@@ -234,11 +240,38 @@ Partial Class Form1
         'SerialPort
         '
         '
+        'Button_Forward
+        '
+        Me.Button_Forward.Location = New System.Drawing.Point(656, 65)
+        Me.Button_Forward.Name = "Button_Forward"
+        Me.Button_Forward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Forward.TabIndex = 17
+        Me.Button_Forward.Text = ">>"
+        Me.Button_Forward.UseVisualStyleBackColor = True
+        '
+        'Button_Run
+        '
+        Me.Button_Run.Location = New System.Drawing.Point(516, 65)
+        Me.Button_Run.Name = "Button_Run"
+        Me.Button_Run.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Run.TabIndex = 16
+        Me.Button_Run.Text = "RUN"
+        Me.Button_Run.UseVisualStyleBackColor = True
+        '
+        'Button_Backward
+        '
+        Me.Button_Backward.Location = New System.Drawing.Point(376, 65)
+        Me.Button_Backward.Name = "Button_Backward"
+        Me.Button_Backward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Backward.TabIndex = 15
+        Me.Button_Backward.Text = "<<"
+        Me.Button_Backward.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1066, 288)
+        Me.ClientSize = New System.Drawing.Size(1066, 317)
         Me.Controls.Add(Me.GroupBox_Variador)
         Me.Controls.Add(Me.GroupBox_Flujo_de_Tramas)
         Me.Name = "Form1"
@@ -272,4 +305,7 @@ Partial Class Form1
     Friend WithEvents Label_Frecuencia_Leida As Label
     Friend WithEvents Button_Leer_Frecuencia As Button
     Friend WithEvents SerialPort As IO.Ports.SerialPort
+    Friend WithEvents Button_Forward As Button
+    Friend WithEvents Button_Run As Button
+    Friend WithEvents Button_Backward As Button
 End Class

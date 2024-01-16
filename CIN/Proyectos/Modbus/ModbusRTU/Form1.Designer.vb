@@ -35,6 +35,15 @@ Partial Class Form1
         Me.PictureBox_Estado = New System.Windows.Forms.PictureBox()
         Me.ComboBox_Puertos = New System.Windows.Forms.ComboBox()
         Me.GroupBox_Variador = New System.Windows.Forms.GroupBox()
+        Me.Button_Decelerar_5s = New System.Windows.Forms.Button()
+        Me.Button_Decelerar05s = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button_Acelerar_5s = New System.Windows.Forms.Button()
+        Me.Button_Acelerar_05s = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Button_Forward = New System.Windows.Forms.Button()
+        Me.Button_Run = New System.Windows.Forms.Button()
+        Me.Button_Backward = New System.Windows.Forms.Button()
         Me.Label_Frecuencia_Leida = New System.Windows.Forms.Label()
         Me.Button_Leer_Frecuencia = New System.Windows.Forms.Button()
         Me.Button_Run_Forward = New System.Windows.Forms.Button()
@@ -43,12 +52,15 @@ Partial Class Form1
         Me.ComboBox_Frecuencias = New System.Windows.Forms.ComboBox()
         Me.Label_Frecuencias = New System.Windows.Forms.Label()
         Me.SerialPort = New System.IO.Ports.SerialPort(Me.components)
-        Me.Button_Forward = New System.Windows.Forms.Button()
-        Me.Button_Run = New System.Windows.Forms.Button()
-        Me.Button_Backward = New System.Windows.Forms.Button()
+        Me.GroupBox_E5CN = New System.Windows.Forms.GroupBox()
+        Me.Label_Temperatura_Leida = New System.Windows.Forms.Label()
+        Me.Button_Leer_Temperatura = New System.Windows.Forms.Button()
+        Me.Button_stop_e5cn = New System.Windows.Forms.Button()
+        Me.Button_run_e5cn = New System.Windows.Forms.Button()
         Me.GroupBox_Flujo_de_Tramas.SuspendLayout()
         CType(Me.PictureBox_Estado, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox_Variador.SuspendLayout()
+        Me.GroupBox_E5CN.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox_Flujo_de_Tramas
@@ -157,6 +169,12 @@ Partial Class Form1
         '
         'GroupBox_Variador
         '
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Decelerar_5s)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Decelerar05s)
+        Me.GroupBox_Variador.Controls.Add(Me.Label4)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Acelerar_5s)
+        Me.GroupBox_Variador.Controls.Add(Me.Button_Acelerar_05s)
+        Me.GroupBox_Variador.Controls.Add(Me.Label3)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Forward)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Run)
         Me.GroupBox_Variador.Controls.Add(Me.Button_Backward)
@@ -170,10 +188,91 @@ Partial Class Form1
         Me.GroupBox_Variador.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox_Variador.Location = New System.Drawing.Point(12, 203)
         Me.GroupBox_Variador.Name = "GroupBox_Variador"
-        Me.GroupBox_Variador.Size = New System.Drawing.Size(1042, 106)
+        Me.GroupBox_Variador.Size = New System.Drawing.Size(1042, 186)
         Me.GroupBox_Variador.TabIndex = 1
         Me.GroupBox_Variador.TabStop = False
         Me.GroupBox_Variador.Text = "Variador MX2"
+        '
+        'Button_Decelerar_5s
+        '
+        Me.Button_Decelerar_5s.Location = New System.Drawing.Point(587, 145)
+        Me.Button_Decelerar_5s.Name = "Button_Decelerar_5s"
+        Me.Button_Decelerar_5s.Size = New System.Drawing.Size(203, 33)
+        Me.Button_Decelerar_5s.TabIndex = 23
+        Me.Button_Decelerar_5s.Text = "10 Segundos"
+        Me.Button_Decelerar_5s.UseVisualStyleBackColor = True
+        '
+        'Button_Decelerar05s
+        '
+        Me.Button_Decelerar05s.Location = New System.Drawing.Point(376, 145)
+        Me.Button_Decelerar05s.Name = "Button_Decelerar05s"
+        Me.Button_Decelerar05s.Size = New System.Drawing.Size(203, 33)
+        Me.Button_Decelerar05s.TabIndex = 22
+        Me.Button_Decelerar05s.Text = "2 Segundos"
+        Me.Button_Decelerar05s.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(118, 145)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(244, 25)
+        Me.Label4.TabIndex = 21
+        Me.Label4.Text = "Tiempo deceleración"
+        '
+        'Button_Acelerar_5s
+        '
+        Me.Button_Acelerar_5s.Location = New System.Drawing.Point(587, 106)
+        Me.Button_Acelerar_5s.Name = "Button_Acelerar_5s"
+        Me.Button_Acelerar_5s.Size = New System.Drawing.Size(203, 33)
+        Me.Button_Acelerar_5s.TabIndex = 20
+        Me.Button_Acelerar_5s.Text = "5 Segundos"
+        Me.Button_Acelerar_5s.UseVisualStyleBackColor = True
+        '
+        'Button_Acelerar_05s
+        '
+        Me.Button_Acelerar_05s.Location = New System.Drawing.Point(376, 106)
+        Me.Button_Acelerar_05s.Name = "Button_Acelerar_05s"
+        Me.Button_Acelerar_05s.Size = New System.Drawing.Size(203, 33)
+        Me.Button_Acelerar_05s.TabIndex = 19
+        Me.Button_Acelerar_05s.Text = "0,5 Segundos"
+        Me.Button_Acelerar_05s.UseVisualStyleBackColor = True
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(118, 106)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(230, 25)
+        Me.Label3.TabIndex = 18
+        Me.Label3.Text = "Tiempo aceleración"
+        '
+        'Button_Forward
+        '
+        Me.Button_Forward.Location = New System.Drawing.Point(656, 65)
+        Me.Button_Forward.Name = "Button_Forward"
+        Me.Button_Forward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Forward.TabIndex = 17
+        Me.Button_Forward.Text = ">>"
+        Me.Button_Forward.UseVisualStyleBackColor = True
+        '
+        'Button_Run
+        '
+        Me.Button_Run.Location = New System.Drawing.Point(516, 65)
+        Me.Button_Run.Name = "Button_Run"
+        Me.Button_Run.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Run.TabIndex = 16
+        Me.Button_Run.Text = "RUN"
+        Me.Button_Run.UseVisualStyleBackColor = True
+        '
+        'Button_Backward
+        '
+        Me.Button_Backward.Location = New System.Drawing.Point(376, 65)
+        Me.Button_Backward.Name = "Button_Backward"
+        Me.Button_Backward.Size = New System.Drawing.Size(134, 33)
+        Me.Button_Backward.TabIndex = 15
+        Me.Button_Backward.Text = "<<"
+        Me.Button_Backward.UseVisualStyleBackColor = True
         '
         'Label_Frecuencia_Leida
         '
@@ -240,38 +339,62 @@ Partial Class Form1
         'SerialPort
         '
         '
-        'Button_Forward
+        'GroupBox_E5CN
         '
-        Me.Button_Forward.Location = New System.Drawing.Point(656, 65)
-        Me.Button_Forward.Name = "Button_Forward"
-        Me.Button_Forward.Size = New System.Drawing.Size(134, 33)
-        Me.Button_Forward.TabIndex = 17
-        Me.Button_Forward.Text = ">>"
-        Me.Button_Forward.UseVisualStyleBackColor = True
+        Me.GroupBox_E5CN.Controls.Add(Me.Button_run_e5cn)
+        Me.GroupBox_E5CN.Controls.Add(Me.Button_stop_e5cn)
+        Me.GroupBox_E5CN.Controls.Add(Me.Label_Temperatura_Leida)
+        Me.GroupBox_E5CN.Controls.Add(Me.Button_Leer_Temperatura)
+        Me.GroupBox_E5CN.Font = New System.Drawing.Font("Verdana", 12.0!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox_E5CN.Location = New System.Drawing.Point(12, 396)
+        Me.GroupBox_E5CN.Name = "GroupBox_E5CN"
+        Me.GroupBox_E5CN.Size = New System.Drawing.Size(1042, 76)
+        Me.GroupBox_E5CN.TabIndex = 2
+        Me.GroupBox_E5CN.TabStop = False
+        Me.GroupBox_E5CN.Text = "E5CN"
         '
-        'Button_Run
+        'Label_Temperatura_Leida
         '
-        Me.Button_Run.Location = New System.Drawing.Point(516, 65)
-        Me.Button_Run.Name = "Button_Run"
-        Me.Button_Run.Size = New System.Drawing.Size(134, 33)
-        Me.Button_Run.TabIndex = 16
-        Me.Button_Run.Text = "RUN"
-        Me.Button_Run.UseVisualStyleBackColor = True
+        Me.Label_Temperatura_Leida.AutoSize = True
+        Me.Label_Temperatura_Leida.Location = New System.Drawing.Point(201, 39)
+        Me.Label_Temperatura_Leida.Name = "Label_Temperatura_Leida"
+        Me.Label_Temperatura_Leida.Size = New System.Drawing.Size(38, 25)
+        Me.Label_Temperatura_Leida.TabIndex = 24
+        Me.Label_Temperatura_Leida.Text = "ºC"
         '
-        'Button_Backward
+        'Button_Leer_Temperatura
         '
-        Me.Button_Backward.Location = New System.Drawing.Point(376, 65)
-        Me.Button_Backward.Name = "Button_Backward"
-        Me.Button_Backward.Size = New System.Drawing.Size(134, 33)
-        Me.Button_Backward.TabIndex = 15
-        Me.Button_Backward.Text = "<<"
-        Me.Button_Backward.UseVisualStyleBackColor = True
+        Me.Button_Leer_Temperatura.Location = New System.Drawing.Point(11, 31)
+        Me.Button_Leer_Temperatura.Name = "Button_Leer_Temperatura"
+        Me.Button_Leer_Temperatura.Size = New System.Drawing.Size(184, 33)
+        Me.Button_Leer_Temperatura.TabIndex = 24
+        Me.Button_Leer_Temperatura.Text = "Temperatura?"
+        Me.Button_Leer_Temperatura.UseVisualStyleBackColor = True
+        '
+        'Button_stop_e5cn
+        '
+        Me.Button_stop_e5cn.Location = New System.Drawing.Point(587, 31)
+        Me.Button_stop_e5cn.Name = "Button_stop_e5cn"
+        Me.Button_stop_e5cn.Size = New System.Drawing.Size(203, 33)
+        Me.Button_stop_e5cn.TabIndex = 24
+        Me.Button_stop_e5cn.Text = "STOP"
+        Me.Button_stop_e5cn.UseVisualStyleBackColor = True
+        '
+        'Button_run_e5cn
+        '
+        Me.Button_run_e5cn.Location = New System.Drawing.Point(376, 31)
+        Me.Button_run_e5cn.Name = "Button_run_e5cn"
+        Me.Button_run_e5cn.Size = New System.Drawing.Size(203, 33)
+        Me.Button_run_e5cn.TabIndex = 25
+        Me.Button_run_e5cn.Text = "RUN"
+        Me.Button_run_e5cn.UseVisualStyleBackColor = True
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1066, 317)
+        Me.ClientSize = New System.Drawing.Size(1066, 481)
+        Me.Controls.Add(Me.GroupBox_E5CN)
         Me.Controls.Add(Me.GroupBox_Variador)
         Me.Controls.Add(Me.GroupBox_Flujo_de_Tramas)
         Me.Name = "Form1"
@@ -281,6 +404,8 @@ Partial Class Form1
         CType(Me.PictureBox_Estado, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox_Variador.ResumeLayout(False)
         Me.GroupBox_Variador.PerformLayout()
+        Me.GroupBox_E5CN.ResumeLayout(False)
+        Me.GroupBox_E5CN.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -308,4 +433,15 @@ Partial Class Form1
     Friend WithEvents Button_Forward As Button
     Friend WithEvents Button_Run As Button
     Friend WithEvents Button_Backward As Button
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Button_Decelerar_5s As Button
+    Friend WithEvents Button_Decelerar05s As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Button_Acelerar_5s As Button
+    Friend WithEvents Button_Acelerar_05s As Button
+    Friend WithEvents GroupBox_E5CN As GroupBox
+    Friend WithEvents Button_Leer_Temperatura As Button
+    Friend WithEvents Label_Temperatura_Leida As Label
+    Friend WithEvents Button_run_e5cn As Button
+    Friend WithEvents Button_stop_e5cn As Button
 End Class

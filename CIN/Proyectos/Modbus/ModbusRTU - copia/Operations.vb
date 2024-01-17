@@ -37,18 +37,17 @@ Module Operations
     End Function
 
     Function hexToDec(trama As String) As Double
-        Dim decimal_result As Double = 0
+        Return Convert.ToDecimal(Convert.ToInt32(trama, 16))
+    End Function
 
-        trama = StrReverse(trama)
+    Function decToHex(valor As Integer) As Byte
+        Dim hex_value As String
+        Dim result As Byte
 
-        For index = 0 To trama.Length - 1
-            If IsNumeric(trama(index)) Then
-                decimal_result += Double.Parse(trama(index)) * (16 ^ index)
-            Else
-                decimal_result += (Asc(trama(index)) - 55) * (16 ^ index)
-            End If
-        Next
+        hex_value = Hex(valor).PadLeft(4, "0"c)
 
-        Return decimal_result
+        result = Val(Convert.ToByte("AA", 16))
+
+        Return result
     End Function
 End Module

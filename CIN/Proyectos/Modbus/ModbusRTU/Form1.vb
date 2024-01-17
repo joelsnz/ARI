@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports System.IO.Ports
 Imports System.Linq.Expressions
+Imports System.Text
 Imports System.Threading
 
 Public Class Form1
@@ -235,36 +236,23 @@ Public Class Form1
                             Label_Frecuencia_Leida.Text = "60Hz"
                     End Select
                 Case "02"
-                    Label_Temperatura_Leida.Text = hex_to_dec(byte_1 + byte_2).ToString + " ºC"
+                    Cadena_Entrante = Conversor_tramaBytes_a_tramaString(Trama_Entrante)
+                    'Ahora aislamos los dos registros donde está la temperatura y en la respuesta del E5CN
+                    Temperatura_String = Mid(TextBox_Trama_Enviada.Text, 16, 20)
+                    'Eliminamos los espacios
+                    Temperatura_String = Temperatura_String.Replace(" ", "")
+                    'Declaramos ahora la variable para almacenar la temperatura numérica entera
+                    Temperatura_Numerica = Convert.ToInt32(Temperatura_String, 16) 'Hexadecimal
+                    Temperatura_Numerica_Doble = Convert.ToDecimal(Temperatura_Numerica) / 10 'Double
+                    'Mostramos la temperatura en el label preparado para ello
+                    Label_Temperatura_Leida.Text = Convert.ToString(Temperatura_Numerica_Doble) & Chr(176) & "C"
             End Select
 
         End If
     End Sub
 
-    Function hex_to_dec(trama As String) As Double
-        Dim decimal_temp As Double
-        Dim index As Integer
-        index = 3
-        For Each character In trama
-            Select Case character
-                Case "A"
-                    decimal_temp += 10 * (16 ^ index)
-                Case "B"
-                    decimal_temp += 11 * (16 ^ index)
-                Case "C"
-                    decimal_temp += 12 * (16 ^ index)
-                Case "D"
-                    decimal_temp += 13 * (16 ^ index)
-                Case "E"
-                    decimal_temp += 14 * (16 ^ index)
-                Case "F"
-                    decimal_temp += 15 * (16 ^ index)
-                Case Else
-                    decimal_temp += Double.Parse(character) * (16 ^ index)
-            End Select
-            index -= 1
-        Next
-        Return decimal_temp / 10
+    Function hexToDec(trama As String) As Double
+        Return Convert.ToDecimal(Convert.ToInt32(trama, 16))
     End Function
 
     Private Sub Button_Run_Forward_Click(sender As Object, e As EventArgs) Handles Button_Run_Backward.Click

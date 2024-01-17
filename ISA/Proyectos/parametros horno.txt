@@ -1,0 +1,3 @@
+proportional band -> 8,0
+integral time -> 233
+derivative time -> time

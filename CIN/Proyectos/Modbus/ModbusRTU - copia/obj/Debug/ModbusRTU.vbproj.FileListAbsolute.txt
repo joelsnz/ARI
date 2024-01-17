@@ -22,3 +22,15 @@ C:\Users\joel0\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\Mo
 C:\Users\joel0\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.exe
 C:\Users\joel0\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.xml
 C:\Users\joel0\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.pdb
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\bin\Debug\ModbusRTU.exe.config
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\bin\Debug\ModbusRTU.exe
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\bin\Debug\ModbusRTU.pdb
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\bin\Debug\ModbusRTU.xml
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.vbproj.AssemblyReference.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.Form1.resources
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.Resources.resources
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.vbproj.GenerateResource.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.vbproj.CoreCompileInputs.cache
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.exe
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.xml
+C:\Users\joel\Documents\ARI\CIN\Proyectos\Modbus\ModbusRTU - copia\obj\Debug\ModbusRTU.pdb

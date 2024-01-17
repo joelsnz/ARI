@@ -50,7 +50,9 @@ Public Class Form1
         Dim inicio As Byte() = {&H0, &H0}
         Dim cantidad As Byte() = {&H0, &H2}
         Dim bytes As Byte = &H4
-        Dim valores As Byte() = {&H0, &H0, &H3, &HE8}
+        Dim valores As Byte() = {&H0, &H0}
+
+        Label_Frecuencia_Leida.Text = decToHex(61098)
 
         WMUltReg(nodos.MX2, inicio, cantidad, bytes, valores)
     End Sub

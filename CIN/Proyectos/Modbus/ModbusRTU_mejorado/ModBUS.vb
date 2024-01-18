@@ -18,6 +18,7 @@ Module ModBUS
         WMultCoils = &HF
         WSingCoil = &H5
         WSingReg = &H6
+        carmen = 7
     End Enum
 
     ''' <summary>

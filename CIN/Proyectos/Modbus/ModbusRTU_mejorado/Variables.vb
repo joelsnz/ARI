@@ -6,4 +6,6 @@
     Public Trama_Entrante As Byte()
     'Frecuencia hexadecimal del esclavo MX2 extraída de una trama leída
     Public Frecuencia As Byte()
+
+    Public temperatura As Double
 End Module

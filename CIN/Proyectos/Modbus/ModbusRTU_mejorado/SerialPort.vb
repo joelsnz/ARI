@@ -22,7 +22,6 @@ Module Ports
             Else
                 MsgBox("NO HAY PUERTOS DISPONIBLES")
                 Beep()
-                Form1.Close()
             End If
         Catch ex As Exception
             MsgBox(ex.Message, MsgBoxStyle.Critical)

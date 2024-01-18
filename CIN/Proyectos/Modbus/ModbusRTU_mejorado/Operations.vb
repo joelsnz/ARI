@@ -63,12 +63,11 @@ Module Operations
     ''' Valor convertido a decimal
     ''' </returns>
     Function hexToDec(trama As Byte()) As Integer
-        Dim dec_value As Integer
-        For index = 1 To trama.Length
-            dec_value += trama(index - 1) * (16 ^ (2 * index))
-        Next
+        Dim trama_string As String = Conversor_tramaBytes_a_tramaString(trama)
 
-        Return dec_value
+        trama_string = trama_string.Replace(" ", "")
+
+        Return Convert.ToInt32(trama_string, 16)
     End Function
 
     ''' <summary>
@@ -97,8 +96,8 @@ Module Operations
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
+
     Public Sub modificar(sender As Object, e As EventArgs)
-        Beep()
         Dim numero_nodo As nodos
         Dim function_code As funciones
 
@@ -110,10 +109,33 @@ Module Operations
         If function_code = funciones.RHoldReg Then
             Select Case numero_nodo
                 Case nodos.MX2
-                    Form1.Label_Frecuencia_Leida.Text = hexToDec({Trama_Entrante(5), Trama_Entrante(6)})
+                    Form1.Label_Frecuencia_Leida.Text = hexToDec({Trama_Entrante(5), Trama_Entrante(6)}) / 100
                 Case nodos.E5CN
-                    Form1.Label_Temperatura_Leida.Text = hexToDec({Trama_Entrante(5), Trama_Entrante(6)})
+                    temperatura = hexToDec({Trama_Entrante(5), Trama_Entrante(6)}) / 10
+                    Form1.Label_Temperatura_Leida.Text = temperatura
             End Select
         End If
+    End Sub
+
+    Public Sub arrancar_motor()
+        Dim trama As Short_trama
+
+        trama.nodo = nodos.MX2
+        trama.funcion = funciones.WSingCoil
+        trama.direccion = {&H0, &H0}
+        trama.valores = {&HFF, &H0}
+
+        sendModBUS(trama)
+    End Sub
+
+    Public Sub parar_motor()
+        Dim trama As Short_trama
+
+        trama.nodo = nodos.MX2
+        trama.funcion = funciones.WSingCoil
+        trama.direccion = {&H0, &H0}
+        trama.valores = {&H0, &H0}
+
+        sendModBUS(trama)
     End Sub
 End Module

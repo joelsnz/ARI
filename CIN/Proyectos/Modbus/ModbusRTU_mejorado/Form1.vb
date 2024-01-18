@@ -96,14 +96,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button_Stop_Click(sender As Object, e As EventArgs) Handles Button_Stop.Click
-        Dim trama As Short_trama
-
-        trama.nodo = nodos.MX2
-        trama.funcion = funciones.WSingCoil
-        trama.direccion = {&H0, &H0}
-        trama.valores = {&H0, &H0}
-
-        sendModBUS(trama)
+        parar_motor()
     End Sub
 
     Private Sub Button_Limpiar_TextBox_Click(sender As Object, e As EventArgs) Handles Button_Limpiar_TextBox.Click
@@ -124,14 +117,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button_Run_Click(sender As Object, e As EventArgs) Handles Button_Run.Click
-        Dim trama As Short_trama
-
-        trama.nodo = nodos.MX2
-        trama.funcion = funciones.WSingCoil
-        trama.direccion = {&H0, &H0}
-        trama.valores = {&HFF, &H0}
-
-        sendModBUS(trama)
+        arrancar_motor()
     End Sub
 
     Private Sub Button_Forward_Click(sender As Object, e As EventArgs) Handles Button_Forward.Click
@@ -221,6 +207,12 @@ Public Class Form1
         trama.valores = {&H0, &H2}
 
         sendModBUS(trama)
+
+        If temperatura > 40.0 Then
+            Call arrancar_motor()
+        ElseIf temperatura < 35.0 Then
+            Call parar_motor()
+        End If
     End Sub
 
     Private Sub Button_run_e5cn_Click(sender As Object, e As EventArgs) Handles Button_run_e5cn.Click

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Properties>
- <Property name="Identificación de objeto" id="2000" index="0" type="7">29/14/1/0</Property>
+ <Property name="Identificación de objeto" id="2000" index="0" type="7">110/14/1/0</Property>
  <Property name="Ultimo responsable: código" id="3010" index="0" type="7"/>
  <Property name="Ultimo responsable: nombre" id="3011" index="0" type="7"/>
  <Property name="Ultimo responsable: teléfono" id="3012" index="0" type="7"/>
@@ -12,8 +12,8 @@
  <Property name="Estructura de proyecto: Número de instalación" id="10005" index="0" type="7"/>
  <Property name="Estructura de proyecto: Tipo de documento" id="10006" index="0" type="7">&lt;1500&gt;</Property>
  <Property name="Estructura de proyecto: Estructura definida por el usuario" id="10007" index="0" type="7"/>
- <Property name="Nombre de proyecto (completo)" id="10009" index="0" type="7">C:\Users\joel0\Documents\ARI\ISA\Proyectos\Navidad\esquema\isa_navidad.elk</Property>
- <Property name="Ruta de proyecto" id="10010" index="0" type="7">Proyectos\Navidad\esquema</Property>
+ <Property name="Nombre de proyecto (completo)" id="10009" index="0" type="7">C:\Users\joel\Documents\ARI\ISA\Proyectos\Navidad\esquema\isa_navidad.elk</Property>
+ <Property name="Ruta de proyecto" id="10010" index="0" type="7">C:\Users\joel\Documents\ARI\ISA\Proyectos\Navidad\esquema</Property>
  <Property name="Descripción de proyecto" id="10011" index="0" type="15">de_DE@Basisprojekt mit Kennzeichnungsstruktur gemäß IEC-Norm: Seitenstruktur mit Funktionskennzeichen und Ortskennzeichen;en_US@Basic project with identification structure in accordance with IEC standard: Page structure with function designation and location designation;es_ES@Proyecto básico con estructura de designación según los estándares IEC: Estructura de página con designación de función y designación de localización;fr_FR@Projet de base avec structure d&apos;identification selon la norme IEC : Structure de page avec identificateur de fonction et identificateur de localisation;nl_NL@Basisproject met coderingsstructuur volgens IEC-norm: Paginastructuur met functie aanduiding en locatie aanduiding;sv_SE@Basprojekt med beteckningsstruktur enligt IEC-normen: Bladstruktur med funktionsbeteckning och placeringsbeteckning;da_DK@Basisprojekt med identificerende struktur iht. IEC-standard: Sidestruktur med funktionsbetegnelse og lokationsbetegnelse;ru_RU@Базовый проект со структурой обозначений согласно стандарту IEC: Структура страницы с функциональным назначением и местом установки;zh_CN@带 IEC 标准标识结构的基本项目:带有高层代号和位置代号的页结构;pl_PL@Projekt bazowy ze strukturą oznaczenia zgodnie z normą IEC: Struktura stron z oznaczeniem funkcji i oznaczeniem miejsca;pt_BR@Projeto de base com estrutura de identificação de acordo com a norma IEC: Estrutura da página com designação de função e designação de localização;cs_CZ@Základní projekt se strukturou označení podle normy IEC: Struktura stran s označením funkce a označením umístění;it_IT@Progetto di base con struttura identificativa conforme alla norma IEC: Struttura pagine con identificativo della funzione e luogo di montaggio;hu_HU@Bázisprojekt jelzési szerkezettel az IEC-szabvány szerint: Tervlapstruktúra főcsoporttal és beépítési hellyel;pt_PT@Projeto de base com estrutura de identificação de acordo com a norma IEC: Estrutura de página com designação da função e designação da localização;ko_KR@IEC 표준에 따른 식별 구조가 있는 기본 프로젝트: 상위 레벨 기능 및 부착 영역이 있는 페이지 구조;ja_JP@基本プロジェクト、IEC 規格に準拠した識別子構造: 機能観点および位置観点を使用したページ構造;tr_TR@IEC standardı uyarınca tanımlama yapılı ana proje: Fonksiyon tanımlayıcısı ve konum tanımlayıcısı içeren sayfa yapısı;ro_RO@Proiect de bază cu structură indicator conform standardului IEC: Structură pagină cu funcție superioară și denumire locație;zh_TW@根據 IEC 標準具識別結構的基本專案：含功能代號與位置代號的頁面結構;</Property>
  <Property name="Aplicar nombre de páginas en IME" id="10012" index="0" type="1">0</Property>
  <Property name="Número de proyecto" id="10013" index="0" type="7">IEC_bas001</Property>
@@ -28,13 +28,13 @@
  <Property name="Ultimo responsable: nombre de inicio de sesión" id="10022" index="0" type="7">joel0</Property>
  <Property name="Fecha de modificación" id="10023" index="0" type="14">1704651060</Property>
  <Property name="Última traducción: fecha" id="10024" index="0" type="14">1647517910</Property>
- <Property name="Fecha del día" id="10027" index="0" type="14">1704651065</Property>
+ <Property name="Fecha del día" id="10027" index="0" type="14">1705659778</Property>
  <Property name="Inicio de proyecto" id="10028" index="0" type="14">1703615541</Property>
  <Property name="Formatos de estructura principal" id="10029" index="0" type="7">4&#9;0&#9;0&#9;0&#9;0</Property>
  <Property name="Ambito especial" id="10034" index="0" type="15">de_DE@keine;en_US@None;nl_NL@geen;fr_FR@aucune;es_ES@ninguno;sv_SE@ingen;da_DK@ingen;zh_CN@无;ru_RU@нет;pl_PL@brak;pt_BR@nenhum;cs_CZ@žádné;it_IT@nessuna;hu_HU@nincs;pt_PT@nenhum;ko_KR@없음;ja_JP@なし;tr_TR@yok;ro_RO@niciunul/niciuna;zh_TW@無;</Property>
  <Property name="Ultima versión EPLAN utilizada" id="10043" index="0" type="7">2023.0.3</Property>
  <Property name="Ultimo número de compilación EPLAN utilizado" id="10044" index="0" type="7">19351</Property>
- <Property name="Ruta de proyecto (completa)" id="10045" index="0" type="7">C:\Users\joel0\Documents\ARI\ISA\Proyectos\Navidad\esquema</Property>
+ <Property name="Ruta de proyecto (completa)" id="10045" index="0" type="7">C:\Users\joel\Documents\ARI\ISA\Proyectos\Navidad\esquema</Property>
  <Property name="Hora de creación" id="10046" index="0" type="7">19:31:52</Property>
  <Property name="Hora de modificación" id="10047" index="0" type="7">19:11:00</Property>
  <Property name="Última traducción: hora" id="10048" index="0" type="7">12:51:50</Property>
@@ -45,7 +45,7 @@
  <Property name="Formato de estructura de medios de explotación generales" id="10055" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cajas de aparatos" id="10056" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura para técnica PLC / bus" id="10057" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
- <Property name="Hora del día" id="10058" index="0" type="14">1704651065</Property>
+ <Property name="Hora del día" id="10058" index="0" type="14">1705659778</Property>
  <Property name="Formato de estructura de regletas de bornes" id="10059" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de conectores" id="10060" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>
  <Property name="Formato de estructura de cables" id="10061" index="0" type="7">&lt;10002&gt;&lt;10004&gt;&lt;20012&gt;&lt;20013&gt;&lt;20014&gt;&lt;20015&gt;&lt;20016&gt;&lt;20017&gt;&lt;20018&gt;&lt;20019&gt;</Property>

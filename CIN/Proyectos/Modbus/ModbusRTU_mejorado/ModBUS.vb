@@ -7,6 +7,7 @@ Module ModBUS
     Public Enum nodos
         MX2 = &H1
         E5CN = &H2
+        C40 = &H3
     End Enum
 
     ''' <summary>
@@ -15,10 +16,10 @@ Module ModBUS
     Public Enum funciones
         WMultReg = &H10
         RHoldReg = &H3
+        RInReg = &H4
         WMultCoils = &HF
         WSingCoil = &H5
         WSingReg = &H6
-        carmen = 7
     End Enum
 
     ''' <summary>
@@ -91,7 +92,7 @@ Module ModBUS
     ''' </param>
     Public Sub sendModBUS(trama As Short_trama)
         'definir la longitud en bytes de la respuesta de la trama
-        If trama.funcion = funciones.RHoldReg Then
+        If trama.funcion = funciones.RHoldReg Or trama.funcion = funciones.RInReg Then
             Form1.SerialPort.ReceivedBytesThreshold = 9
         Else
             Form1.SerialPort.ReceivedBytesThreshold = 8

@@ -8,4 +8,6 @@
     Public Frecuencia As Byte()
 
     Public temperatura As Double
+
+    Public motor_activo As Boolean
 End Module

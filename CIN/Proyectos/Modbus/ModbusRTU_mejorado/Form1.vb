@@ -2,6 +2,7 @@
 Imports System.IO.Ports
 Imports System.Linq.Expressions
 Imports System.Threading
+Imports System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar
 
 Public Class Form1
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -96,7 +97,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button_Stop_Click(sender As Object, e As EventArgs) Handles Button_Stop.Click
-        parar_motor()
+        PararMotor()
     End Sub
 
     Private Sub Button_Limpiar_TextBox_Click(sender As Object, e As EventArgs) Handles Button_Limpiar_TextBox.Click
@@ -117,7 +118,7 @@ Public Class Form1
     End Sub
 
     Private Sub Button_Run_Click(sender As Object, e As EventArgs) Handles Button_Run.Click
-        arrancar_motor()
+        ArrancarMotor()
     End Sub
 
     Private Sub Button_Forward_Click(sender As Object, e As EventArgs) Handles Button_Forward.Click
@@ -208,10 +209,10 @@ Public Class Form1
 
         sendModBUS(trama)
 
-        If temperatura > 40.0 Then
-            Call arrancar_motor()
-        ElseIf temperatura < 35.0 Then
-            Call parar_motor()
+        If temperatura > 40.0 And Not motor_activo Then
+            ArrancarMotor()
+        ElseIf temperatura < 35.0 And motor_activo Then
+            PararMotor()
         End If
     End Sub
 
@@ -233,6 +234,17 @@ Public Class Form1
         trama.funcion = funciones.WSingReg
         trama.direccion = {&H0, &H0}
         trama.valores = {&H1, &H1}
+
+        sendModBUS(trama)
+    End Sub
+
+    Private Sub Button_Leer_Temperatura_FEMA_Click(sender As Object, e As EventArgs) Handles Button_Leer_Temperatura_FEMA.Click
+        Dim trama As Short_trama
+
+        trama.nodo = nodos.C40
+        trama.funcion = funciones.RInReg
+        trama.direccion = {&H0, &H0}
+        trama.valores = {&H0, &H2}
 
         sendModBUS(trama)
     End Sub

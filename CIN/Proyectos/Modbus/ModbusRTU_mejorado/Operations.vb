@@ -96,7 +96,6 @@ Module Operations
     ''' </summary>
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
-
     Public Sub modificar(sender As Object, e As EventArgs)
         Dim numero_nodo As nodos
         Dim function_code As funciones
@@ -109,16 +108,24 @@ Module Operations
         If function_code = funciones.RHoldReg Then
             Select Case numero_nodo
                 Case nodos.MX2
-                    Form1.Label_Frecuencia_Leida.Text = hexToDec({Trama_Entrante(5), Trama_Entrante(6)}) / 100
+                    Form1.Label_Frecuencia_Leida.Text = (hexToDec({Trama_Entrante(5), Trama_Entrante(6)}) / 100).ToString + " Hz"
                 Case nodos.E5CN
                     temperatura = hexToDec({Trama_Entrante(5), Trama_Entrante(6)}) / 10
-                    Form1.Label_Temperatura_Leida.Text = temperatura
+                    Form1.Label_Temperatura_Leida.Text = temperatura.ToString + " ºC"
             End Select
+        End If
+
+        If numero_nodo = nodos.C40 Then
+            temperatura = hexToDec({Trama_Entrante(3), Trama_Entrante(4)})
+            Dim decimales As Double = hexToDec({Trama_Entrante(5), Trama_Entrante(6)})
+            Form1.Label_Temperatura_FEMA.Text = (temperatura / decimales).ToString + " ºC"
         End If
     End Sub
 
-    Public Sub arrancar_motor()
+    Public Sub ArrancarMotor()
         Dim trama As Short_trama
+
+        motor_activo = True
 
         trama.nodo = nodos.MX2
         trama.funcion = funciones.WSingCoil
@@ -128,8 +135,10 @@ Module Operations
         sendModBUS(trama)
     End Sub
 
-    Public Sub parar_motor()
+    Public Sub PararMotor()
         Dim trama As Short_trama
+
+        motor_activo = False
 
         trama.nodo = nodos.MX2
         trama.funcion = funciones.WSingCoil

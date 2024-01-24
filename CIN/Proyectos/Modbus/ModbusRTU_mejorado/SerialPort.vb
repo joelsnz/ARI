@@ -40,7 +40,7 @@ Module Ports
     Public Sub OpenSerialPort(port As SerialPort, name As String)
         Try
             With port
-                .BaudRate = 38400
+                .BaudRate = 4800
                 .DataBits = 8
                 .Parity = IO.Ports.Parity.Even
                 .StopBits = IO.Ports.StopBits.One

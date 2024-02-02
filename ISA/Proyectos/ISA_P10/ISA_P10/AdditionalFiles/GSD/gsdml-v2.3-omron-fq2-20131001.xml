@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<ISO15745Profile xmlns="http://www.profibus.com/GSDML/2003/11/DeviceProfile" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.profibus.com/GSDML/2003/11/DeviceProfile ..\XSD\GSDML-DeviceProfile-v2.3.xsd">
+	<ProfileHeader>
+		<ProfileIdentification>PROFINET Device Profile</ProfileIdentification>
+		<ProfileRevision>1.00</ProfileRevision>
+		<ProfileName>Device Profile for PROFINET Devices</ProfileName>
+		<ProfileSource>PROFIBUS Nutzerorganisation e. V. (PNO)</ProfileSource>
+		<ProfileClassID>Device</ProfileClassID>
+		<ISO15745Reference>
+			<ISO15745Part>4</ISO15745Part>
+			<ISO15745Edition>1</ISO15745Edition>
+			<ProfileTechnology>GSDML</ProfileTechnology>
+		</ISO15745Reference>
+	</ProfileHeader>
+	<ProfileBody>
+		<DeviceIdentity VendorID="0x0264" DeviceID="0x1000">
+			<InfoText TextId="T_FamilyDescription"/>
+			<VendorName Value="OMRON Corporation"/>
+		</DeviceIdentity>
+		<DeviceFunction>
+			<Family MainFamily="Sensors" ProductFamily="FQ Series"/>
+		</DeviceFunction>
+		<ApplicationProcess>
+			<DeviceAccessPointList>
+				<DeviceAccessPointItem AddressAssignment="DCP;LOCAL" PhysicalSlots="0..2" ModuleIdentNumber="0x00000010" PNIO_Version="V2.2" MinDeviceInterval="32" DNS_CompatibleName="FQ2" FixedInSlots="0" ObjectUUID_LocalIndex="1" ID="DAP1" DeviceAccessSupported="false" NameOfStationNotTransferable="true">
+					<ModuleInfo>
+						<Name TextId="T_FQ2" />
+						<InfoText TextId="T_FQ2Description" />
+						<VendorName Value="OMRON" />
+						<OrderNumber Value="FQ2-XXX" />
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<SubslotList>
+						<SubslotItem SubslotNumber="32768" TextId="IDT_SS_Interface" />
+						<SubslotItem SubslotNumber="32769" TextId="IDT_SS_Port1" />
+					</SubslotList>
+					<IOConfigData MaxInputLength="288" MaxOutputLength="32"/>
+					<UseableModules>
+						<ModuleItemRef ModuleItemTarget="101" AllowedInSlots="1" FixedInSlots="1"/>
+						<ModuleItemRef ModuleItemTarget="201" AllowedInSlots="2" UsedInSlots="2"/>
+						<ModuleItemRef ModuleItemTarget="202" AllowedInSlots="2" />
+						<ModuleItemRef ModuleItemTarget="203" AllowedInSlots="2" />
+						<ModuleItemRef ModuleItemTarget="204" AllowedInSlots="2" />
+					</UseableModules>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="DIM1" SubmoduleIdentNumber="0x00000000">
+							<IOData IOPS_Length="1" IOCS_Length="1"/>
+							<RecordDataList />
+                            <ModuleInfo>
+								<Name TextId="T_FQ2"/>
+								<InfoText TextId="T_FQ2Description"/>
+								<SoftwareRelease Value="1.9.0" />
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+					<SystemDefinedSubmoduleList>
+						<InterfaceSubmoduleItem ID="ISMI00000001" SubslotNumber="32768" SubmoduleIdentNumber="0x00000001" SupportedRT_Class="Class1" TextId="T_DAP_InterfaceModule" IsochroneModeSupported="false" SupportedProtocols="LLDP" SupportedMibs="false">
+							<ApplicationRelations NumberOfAdditionalInputCR="0" NumberOfAdditionalMulticastProviderCR="0" NumberOfAdditionalOutputCR="0" NumberOfMulticastConsumerCR="0">
+								<TimingProperties SendClock="32" ReductionRatio="1 2 4 8 16 32 64 128 256 512" />
+							</ApplicationRelations>
+						</InterfaceSubmoduleItem>
+						<PortSubmoduleItem ID="PSMI00000001" SubslotNumber="32769" SubmoduleIdentNumber="0x00000002" MAUType="100BASETXFD" TextId="T_Port1" />
+					</SystemDefinedSubmoduleList>
+					<Graphics>
+						<GraphicItemRef Type="DeviceSymbol" GraphicItemTarget="1" />
+					</Graphics>
+				</DeviceAccessPointItem>
+			</DeviceAccessPointList>
+			<ModuleList>
+				<ModuleItem ID="101" ModuleIdentNumber="0x00000101">
+					<ModuleInfo CategoryRef="OutputData">
+						<Name TextId="T_output_data_module"/>
+						<InfoText TextId="T_output_data_info"/>
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="1" SubmoduleIdentNumber="0x00000000">
+							<IOData>
+								<Output Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_CONTROL1">
+										<BitDataItem BitOffset="0" TextId="IDT_OUTBIT_EXE" />
+										<BitDataItem BitOffset="1" TextId="IDT_OUTBIT_TRIG" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_CONTROL2">
+										<BitDataItem BitOffset="7" TextId="IDT_OUTBIT_ERRCLR" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_CONTROL3">
+										<BitDataItem BitOffset="0" TextId="IDT_OUTBIT_DSA" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="false" TextId="IDT_DATAITEM_CONTROL4" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_OUT_COMMAND_CODE" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_OUT_COMMAND_PARA1" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_OUT_COMMAND_PARA2" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_OUT_COMMAND_PARA3" />
+								</Output>
+							</IOData>
+			                <ModuleInfo>
+								<Name TextId="T_output_data_module" />
+								<InfoText TextId="T_output_data_info" />
+								<SoftwareRelease Value="1.9.0" />
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="201" ModuleIdentNumber="0x00000201">
+					<ModuleInfo CategoryRef="InputData">
+						<Name TextId="T_input_data_results_8_module"/>
+						<InfoText TextId="T_input_data_results_8_info"/>
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="2" SubmoduleIdentNumber="0x00000000">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS1">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_FLG" />
+										<BitDataItem BitOffset="1" TextId="IDT_INBIT_BUSY" />
+										<BitDataItem BitOffset="2" TextId="IDT_INBIT_READY" />
+										<BitDataItem BitOffset="3" TextId="IDT_INBIT_OR" />
+										<BitDataItem BitOffset="4" TextId="IDT_INBIT_RUN" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS2">
+										<BitDataItem BitOffset="7" TextId="IDT_INBIT_ERROR" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS3">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_GATE" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="false" TextId="IDT_DATAITEM_STATUS4" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_COMMAND_CODE" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_RESPONSE_CODE" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_RESPONSE_DATA" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA01" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA02" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA03" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA04" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA05" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA06" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA07" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA08" />
+								</Input>
+							</IOData>
+			                <ModuleInfo>
+								<Name TextId="T_input_data_results_8_module"/>
+								<InfoText TextId="T_input_data_results_8_info"/>
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="202" ModuleIdentNumber="0x00000202">
+					<ModuleInfo CategoryRef="InputData">
+						<Name TextId="T_input_data_results_16_module"/>
+						<InfoText TextId="T_input_data_results_16_info"/>
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="3" SubmoduleIdentNumber="0x00000000">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS1">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_FLG" />
+										<BitDataItem BitOffset="1" TextId="IDT_INBIT_BUSY" />
+										<BitDataItem BitOffset="2" TextId="IDT_INBIT_READY" />
+										<BitDataItem BitOffset="3" TextId="IDT_INBIT_OR" />
+										<BitDataItem BitOffset="4" TextId="IDT_INBIT_RUN" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS2">
+										<BitDataItem BitOffset="7" TextId="IDT_INBIT_ERROR" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS3">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_GATE" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="false" TextId="IDT_DATAITEM_STATUS4" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_COMMAND_CODE" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_RESPONSE_CODE" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_RESPONSE_DATA" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA01" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA02" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA03" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA04" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA05" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA06" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA07" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA08" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA09" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA10" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA11" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA12" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA13" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA14" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA15" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA16" />
+								</Input>
+							</IOData>
+			                <ModuleInfo>
+								<Name TextId="T_input_data_results_16_module"/>
+								<InfoText TextId="T_input_data_results_16_info"/>
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="203" ModuleIdentNumber="0x00000203">
+					<ModuleInfo CategoryRef="InputData">
+						<Name TextId="T_input_data_results_32_module"/>
+						<InfoText TextId="T_input_data_results_32_info"/>
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="4" SubmoduleIdentNumber="0x00000000">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS1">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_FLG" />
+										<BitDataItem BitOffset="1" TextId="IDT_INBIT_BUSY" />
+										<BitDataItem BitOffset="2" TextId="IDT_INBIT_READY" />
+										<BitDataItem BitOffset="3" TextId="IDT_INBIT_OR" />
+										<BitDataItem BitOffset="4" TextId="IDT_INBIT_RUN" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS2">
+										<BitDataItem BitOffset="7" TextId="IDT_INBIT_ERROR" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS3">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_GATE" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="false" TextId="IDT_DATAITEM_STATUS4" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_COMMAND_CODE" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_RESPONSE_CODE" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_RESPONSE_DATA" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA01" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA02" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA03" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA04" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA05" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA06" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA07" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA08" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA09" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA10" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA11" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA12" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA13" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA14" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA15" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA16" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA17" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA18" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA19" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA20" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA21" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA22" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA23" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA24" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA25" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA26" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA27" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA28" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA29" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA30" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA31" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA32" />
+								</Input>
+							</IOData>
+			                <ModuleInfo>
+								<Name TextId="T_input_data_results_32_module"/>
+								<InfoText TextId="T_input_data_results_32_info"/>
+								<SoftwareRelease Value="1.9.0" />
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+				<ModuleItem ID="204" ModuleIdentNumber="0x00000204">
+					<ModuleInfo CategoryRef="InputData">
+						<Name TextId="T_input_data_results_64_module"/>
+						<InfoText TextId="T_input_data_results_64_info"/>
+						<SoftwareRelease Value="1.9.0" />
+					</ModuleInfo>
+					<VirtualSubmoduleList>
+						<VirtualSubmoduleItem ID="5" SubmoduleIdentNumber="0x00000000">
+							<IOData>
+								<Input Consistency="All items consistency">
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS1">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_FLG" />
+										<BitDataItem BitOffset="1" TextId="IDT_INBIT_BUSY" />
+										<BitDataItem BitOffset="2" TextId="IDT_INBIT_READY" />
+										<BitDataItem BitOffset="3" TextId="IDT_INBIT_OR" />
+										<BitDataItem BitOffset="4" TextId="IDT_INBIT_RUN" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS2">
+										<BitDataItem BitOffset="7" TextId="IDT_INBIT_ERROR" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="true" TextId="IDT_DATAITEM_STATUS3">
+										<BitDataItem BitOffset="0" TextId="IDT_INBIT_GATE" />
+									</DataItem>
+									<DataItem DataType="Unsigned8" UseAsBits="false" TextId="IDT_DATAITEM_STATUS4" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_COMMAND_CODE" />
+									<DataItem DataType="Unsigned32" UseAsBits="false" TextId="IDT_IN_RESPONSE_CODE" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_RESPONSE_DATA" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA01" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA02" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA03" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA04" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA05" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA06" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA07" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA08" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA09" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA10" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA11" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA12" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA13" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA14" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA15" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA16" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA17" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA18" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA19" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA20" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA21" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA22" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA23" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA24" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA25" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA26" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA27" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA28" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA29" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA30" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA31" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA32" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA33" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA34" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA35" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA36" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA37" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA38" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA39" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA40" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA41" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA42" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA43" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA44" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA45" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA46" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA47" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA48" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA49" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA50" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA51" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA52" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA53" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA54" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA55" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA56" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA57" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA58" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA59" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA60" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA61" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA62" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA63" />
+									<DataItem DataType="Integer32" UseAsBits="false" TextId="IDT_IN_OUTPUT_DATA64" />
+								</Input>
+							</IOData>
+			                <ModuleInfo>
+								<Name TextId="T_input_data_results_64_module"/>
+								<InfoText TextId="T_input_data_results_64_info"/>
+								<SoftwareRelease Value="1.9.0" />
+                            </ModuleInfo>
+						</VirtualSubmoduleItem>
+					</VirtualSubmoduleList>
+				</ModuleItem>
+			</ModuleList>
+			<GraphicsList>
+				<GraphicItem ID="1" GraphicFile="GSDML-0264-1000-FQ2" />
+			</GraphicsList>
+			<CategoryList>
+				<CategoryItem TextId="T_OutputDataCategory" ID="OutputData" />
+				<CategoryItem TextId="T_InputDataCategory" ID="InputData" />
+			</CategoryList>
+			<!--      -->
+			<!-- Text -->
+			<!--      -->
+			<ExternalTextList>
+				<PrimaryLanguage>
+					<!-- General Text -->
+					<Text TextId="T_FamilyDescription" Value="FQ2 Smart Camera" />
+					<Text TextId="T_FQ2" Value="FQ2-XXX" />
+					<Text TextId="T_FQ2Description" Value="FQ2-XXX Smart Camera" />
+					<!-- Information -->
+					<!-- Module Name -->
+					<Text TextId="IDT_SS_Interface" Value="X1" />
+					<Text TextId="IDT_SS_Port1" Value="X1 P1" />
+					<Text TextId="T_DAP_InterfaceModule" Value="Interface" />
+					<Text TextId="T_Port1" Value="Port 1" />
+					
+					<Text TextId="T_OutputDataCategory" Value="FQ2 Output Data Modules" />
+					<Text TextId="T_output_data_module" Value="Output Data" />
+					<Text TextId="T_output_data_info" Value="Output Data" />
+					
+					<Text TextId="T_InputDataCategory" Value="FQ2 Input Data Modules" />
+					<Text TextId="T_input_data_results_8_module" Value="Results Data - 8 items" />
+					<Text TextId="T_input_data_results_8_info" Value="Results Data 8 items" />
+					<Text TextId="T_input_data_results_16_module" Value="Results Data - 16 items" />
+					<Text TextId="T_input_data_results_16_info" Value="Results Data 16 items" />
+					<Text TextId="T_input_data_results_32_module" Value="Results Data - 32 items" />
+					<Text TextId="T_input_data_results_32_info" Value="Results Data 32 items" />
+					<Text TextId="T_input_data_results_64_module" Value="Results Data - 64 items" />
+					<Text TextId="T_input_data_results_64_info" Value="Results Data 64 items" />
+			        
+					<!-- Inputs (to PLC) -->
+					<Text TextId="IDT_DATAITEM_STATUS1" Value="Status Flag 1" />
+					<Text TextId="IDT_DATAITEM_STATUS2" Value="Status Flag 2" />
+					<Text TextId="IDT_DATAITEM_STATUS3" Value="Status Flag 3" />
+					<Text TextId="IDT_DATAITEM_STATUS4" Value="Status Flag Reserved" />
+					<Text TextId="IDT_INBIT_FLG" Value="FLG" />
+					<Text TextId="IDT_INBIT_BUSY" Value="BUSY" />
+					<Text TextId="IDT_INBIT_READY" Value="READY" />
+					<Text TextId="IDT_INBIT_OR" Value="OR" />
+					<Text TextId="IDT_INBIT_RUN" Value="RUN" />
+					<Text TextId="IDT_INBIT_ERROR" Value="ERR" />
+					<Text TextId="IDT_INBIT_GATE" Value="GATE" />
+					<Text TextId="IDT_IN_COMMAND_CODE" Value="Command Code" />
+					<Text TextId="IDT_IN_RESPONSE_CODE" Value="Respons Code" />
+					<Text TextId="IDT_IN_RESPONSE_DATA" Value="Respons Data" />
+					
+					<Text TextId="IDT_IN_OUTPUT_DATA01" Value="Output Data 1" />
+					<Text TextId="IDT_IN_OUTPUT_DATA02" Value="Output Data 2" />
+					<Text TextId="IDT_IN_OUTPUT_DATA03" Value="Output Data 3" />
+					<Text TextId="IDT_IN_OUTPUT_DATA04" Value="Output Data 4" />
+					<Text TextId="IDT_IN_OUTPUT_DATA05" Value="Output Data 5" />
+					<Text TextId="IDT_IN_OUTPUT_DATA06" Value="Output Data 6" />
+					<Text TextId="IDT_IN_OUTPUT_DATA07" Value="Output Data 7" />
+					<Text TextId="IDT_IN_OUTPUT_DATA08" Value="Output Data 8" />
+					<Text TextId="IDT_IN_OUTPUT_DATA09" Value="Output Data 9" />
+					<Text TextId="IDT_IN_OUTPUT_DATA10" Value="Output Data 10" />
+					<Text TextId="IDT_IN_OUTPUT_DATA11" Value="Output Data 11" />
+					<Text TextId="IDT_IN_OUTPUT_DATA12" Value="Output Data 12" />
+					<Text TextId="IDT_IN_OUTPUT_DATA13" Value="Output Data 13" />
+					<Text TextId="IDT_IN_OUTPUT_DATA14" Value="Output Data 14" />
+					<Text TextId="IDT_IN_OUTPUT_DATA15" Value="Output Data 15" />
+					<Text TextId="IDT_IN_OUTPUT_DATA16" Value="Output Data 16" />
+					<Text TextId="IDT_IN_OUTPUT_DATA17" Value="Output Data 17" />
+					<Text TextId="IDT_IN_OUTPUT_DATA18" Value="Output Data 18" />
+					<Text TextId="IDT_IN_OUTPUT_DATA19" Value="Output Data 19" />
+					<Text TextId="IDT_IN_OUTPUT_DATA20" Value="Output Data 20" />
+					<Text TextId="IDT_IN_OUTPUT_DATA21" Value="Output Data 21" />
+					<Text TextId="IDT_IN_OUTPUT_DATA22" Value="Output Data 22" />
+					<Text TextId="IDT_IN_OUTPUT_DATA23" Value="Output Data 23" />
+					<Text TextId="IDT_IN_OUTPUT_DATA24" Value="Output Data 24" />
+					<Text TextId="IDT_IN_OUTPUT_DATA25" Value="Output Data 25" />
+					<Text TextId="IDT_IN_OUTPUT_DATA26" Value="Output Data 26" />
+					<Text TextId="IDT_IN_OUTPUT_DATA27" Value="Output Data 27" />
+					<Text TextId="IDT_IN_OUTPUT_DATA28" Value="Output Data 28" />
+					<Text TextId="IDT_IN_OUTPUT_DATA29" Value="Output Data 29" />
+					<Text TextId="IDT_IN_OUTPUT_DATA30" Value="Output Data 30" />
+					<Text TextId="IDT_IN_OUTPUT_DATA31" Value="Output Data 31" />
+					<Text TextId="IDT_IN_OUTPUT_DATA32" Value="Output Data 32" />
+					<Text TextId="IDT_IN_OUTPUT_DATA33" Value="Output Data 33" />
+					<Text TextId="IDT_IN_OUTPUT_DATA34" Value="Output Data 34" />
+					<Text TextId="IDT_IN_OUTPUT_DATA35" Value="Output Data 35" />
+					<Text TextId="IDT_IN_OUTPUT_DATA36" Value="Output Data 36" />
+					<Text TextId="IDT_IN_OUTPUT_DATA37" Value="Output Data 37" />
+					<Text TextId="IDT_IN_OUTPUT_DATA38" Value="Output Data 38" />
+					<Text TextId="IDT_IN_OUTPUT_DATA39" Value="Output Data 39" />
+					<Text TextId="IDT_IN_OUTPUT_DATA40" Value="Output Data 40" />
+					<Text TextId="IDT_IN_OUTPUT_DATA41" Value="Output Data 41" />
+					<Text TextId="IDT_IN_OUTPUT_DATA42" Value="Output Data 42" />
+					<Text TextId="IDT_IN_OUTPUT_DATA43" Value="Output Data 43" />
+					<Text TextId="IDT_IN_OUTPUT_DATA44" Value="Output Data 44" />
+					<Text TextId="IDT_IN_OUTPUT_DATA45" Value="Output Data 45" />
+					<Text TextId="IDT_IN_OUTPUT_DATA46" Value="Output Data 46" />
+					<Text TextId="IDT_IN_OUTPUT_DATA47" Value="Output Data 47" />
+					<Text TextId="IDT_IN_OUTPUT_DATA48" Value="Output Data 48" />
+					<Text TextId="IDT_IN_OUTPUT_DATA49" Value="Output Data 49" />
+					<Text TextId="IDT_IN_OUTPUT_DATA50" Value="Output Data 50" />
+					<Text TextId="IDT_IN_OUTPUT_DATA51" Value="Output Data 51" />
+					<Text TextId="IDT_IN_OUTPUT_DATA52" Value="Output Data 52" />
+					<Text TextId="IDT_IN_OUTPUT_DATA53" Value="Output Data 53" />
+					<Text TextId="IDT_IN_OUTPUT_DATA54" Value="Output Data 54" />
+					<Text TextId="IDT_IN_OUTPUT_DATA55" Value="Output Data 55" />
+					<Text TextId="IDT_IN_OUTPUT_DATA56" Value="Output Data 56" />
+					<Text TextId="IDT_IN_OUTPUT_DATA57" Value="Output Data 57" />
+					<Text TextId="IDT_IN_OUTPUT_DATA58" Value="Output Data 58" />
+					<Text TextId="IDT_IN_OUTPUT_DATA59" Value="Output Data 59" />
+					<Text TextId="IDT_IN_OUTPUT_DATA60" Value="Output Data 60" />
+					<Text TextId="IDT_IN_OUTPUT_DATA61" Value="Output Data 61" />
+					<Text TextId="IDT_IN_OUTPUT_DATA62" Value="Output Data 62" />
+					<Text TextId="IDT_IN_OUTPUT_DATA63" Value="Output Data 63" />
+					<Text TextId="IDT_IN_OUTPUT_DATA64" Value="Output Data 64" />
+					
+					<!-- Outputs (from PLC) -->
+					<Text TextId="IDT_DATAITEM_CONTROL1" Value="Control Flag 1" />
+					<Text TextId="IDT_DATAITEM_CONTROL2" Value="Control Flag 2" />
+					<Text TextId="IDT_DATAITEM_CONTROL3" Value="Control Flag 3" />
+					<Text TextId="IDT_DATAITEM_CONTROL4" Value="Control Flag Reserved" />
+					<Text TextId="IDT_OUTBIT_EXE" Value="EXE" />
+					<Text TextId="IDT_OUTBIT_TRIG" Value="TRIG" />
+					<Text TextId="IDT_OUTBIT_ERRCLR" Value="ERCLR" />
+					<Text TextId="IDT_OUTBIT_DSA" Value="DSA" />
+					<Text TextId="IDT_OUT_COMMAND_CODE" Value="Command Code" />
+					<Text TextId="IDT_OUT_COMMAND_PARA1" Value="Command Parameter 1" />
+					<Text TextId="IDT_OUT_COMMAND_PARA2" Value="Command Parameter 2" />
+					<Text TextId="IDT_OUT_COMMAND_PARA3" Value="Command Parameter 3" />
+					<Text TextId="IDT_OUT_VALUE_IMPORT" Value="Value Output Area" />
+				</PrimaryLanguage>
+			</ExternalTextList>
+		</ApplicationProcess>
+	</ProfileBody>
+</ISO15745Profile>

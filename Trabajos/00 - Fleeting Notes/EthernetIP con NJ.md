@@ -2,7 +2,7 @@
 type: Fleeting Note
 tags:
   - Omron
-status: todo
+status: doing
 ---
 # EthernetIP con NJ
 

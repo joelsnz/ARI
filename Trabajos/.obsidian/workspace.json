@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00 - Fleeting Notes/EthernetIP con NJ.md",
+                "file": "01 - Literature Notes/Configuración EtherNetIP.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00 - Fleeting Notes/EthernetIP con NJ.md",
+                "file": "01 - Literature Notes/Configuración EtherNetIP.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00 - Fleeting Notes/EthernetIP con NJ.md",
+                "file": "01 - Literature Notes/Configuración EtherNetIP.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "00 - Fleeting Notes/EthernetIP con NJ.md"
+                "file": "01 - Literature Notes/Configuración EtherNetIP.md"
               }
             }
           }
@@ -149,9 +149,10 @@
   },
   "active": "8817b92914f8684e",
   "lastOpenFiles": [
+    "00 - Fleeting Notes/EthernetIP con NJ.md",
+    "01 - Literature Notes/Configuración EtherNetIP.md",
     "Home.md",
     "Maps of Content.md",
-    "00 - Fleeting Notes/EthernetIP con NJ.md",
     "99 - Templates/Note Template.md",
     "99 - Templates/Map of Content.md",
     "Welcome.md",

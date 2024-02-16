@@ -1,0 +1,6 @@
+Movimiento de la carga por vuelta del encoder -> 250mm
+
+Relación reductor = 1:26
+Perímetro del tubo = 40mm * 3,14 = 125,6mm
+
+Movimiento de la carga por vuelta del motor -> 26 / 125,6mm = 20,7mm

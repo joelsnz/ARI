@@ -1,0 +1,23 @@
+﻿TYPE "PII - KI6000"
+VERSION : 0.1
+	 STRUCT
+		"Datos del proceso de entrada/salida - PDV1 (Invalid Data Type)" : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Datos del proceso de entrada/salida - BDC1" : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+		"Reserved Bit"                               : Bool;
+	 END_STRUCT
+END_TYPE
+
+

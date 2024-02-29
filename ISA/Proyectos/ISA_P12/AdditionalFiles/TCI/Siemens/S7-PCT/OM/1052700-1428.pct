@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<PCTProject Version="2.4" PlcID="{1052700-1428}" ProjectType="1" ItemCount="15" ProjectReadPath="" Protection="">
+<PCTProject Version="2.4" PlcID="{1052700-1428}" ProjectType="1" ItemCount="16" ProjectReadPath="" Protection="">
   <!--No está permitido editar este archivo.
 La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en caso afirmativo.-->
   <Structure>
@@ -40,34 +40,46 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
       <Parameter Name="dataset_222_header_port_quality_offset_bit" Value="0" Type="Byte" />
       <Parameter Name="dataset_222_header_port_quality_offset_byte" Value="255" Type="Byte" />
       <Parameter Name="dataset_229_master_diag_status" Value="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" Type="Byte[]" />
-      <Parameter Name="dataset_231_block_1_hw_revision" Value="0" Type="UInt16" />
-      <Parameter Name="dataset_231_block_1_sw_revision" Value="0" Type="UInt32" />
+      <Parameter Name="dataset_231_block_1_hw_revision" Value="20" Type="UInt16" />
+      <Parameter Name="dataset_231_block_1_serial_number" Value="S C-RNA2G1WK2023" Type="String" />
+      <Parameter Name="dataset_231_block_1_sw_revision" Value="1442972163" Type="UInt32" />
       <Parameter Name="EnablePortQualityInfo" Value="0" Type="Byte" />
       <Parameter Name="IdentNumber" Value="0" Type="Int32" />
       <Parameter Name="MasterFreeze" Value="0" Type="Byte" />
       <Parameter Name="Name" Value="CM 4xIO-Link_1" Type="String" />
       <Parameter Name="PortQualityInfoLength" Value="4" Type="Byte" />
       <Parameter Name="ProfinetIOApi" Value="0" Type="Int32" />
-      <Parameter Name="SFMData" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;PortCollection xmlns=&quot;http://tempuri.org/XMLSchema.xsd&quot;&gt;&lt;PortConfiguration portNumber=&quot;1&quot; portMode=&quot;IO-Link&quot; comment=&quot;&quot;&gt;&lt;DeviceInfo vendorName=&quot;ifm electronic gmbh&quot; deviceName=&quot;KI6000&quot; productName=&quot;KI5303&quot; orderNumber=&quot;KI6000&quot; /&gt;&lt;InputAddressMapping byteOffset=&quot;2&quot; bitOffset=&quot;0&quot; bitLength=&quot;16&quot; /&gt;&lt;/PortConfiguration&gt;&lt;PortConfiguration portNumber=&quot;2&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;PortConfiguration portNumber=&quot;3&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;PortConfiguration portNumber=&quot;4&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;/PortCollection&gt;" Type="String" />
+      <Parameter Name="SFMData" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;PortCollection xmlns=&quot;http://tempuri.org/XMLSchema.xsd&quot;&gt;&lt;PortConfiguration portNumber=&quot;1&quot; portMode=&quot;IO-Link&quot; comment=&quot;&quot;&gt;&lt;DeviceInfo vendorName=&quot;ifm electronic gmbh&quot; deviceName=&quot;KI6000&quot; productName=&quot;KI5303&quot; orderNumber=&quot;KI6000&quot; /&gt;&lt;InputAddressMapping byteOffset=&quot;0&quot; bitOffset=&quot;0&quot; bitLength=&quot;16&quot; /&gt;&lt;/PortConfiguration&gt;&lt;PortConfiguration portNumber=&quot;2&quot; portMode=&quot;IO-Link&quot; comment=&quot;&quot;&gt;&lt;DeviceInfo vendorName=&quot;Balluff&quot; deviceName=&quot;BNI IOL-800-000-Z036&quot; productName=&quot;BNI IOL-800-000-Z036&quot; orderNumber=&quot;BNI007T&quot; /&gt;&lt;OutputAddressMapping byteOffset=&quot;0&quot; bitOffset=&quot;0&quot; bitLength=&quot;8&quot; /&gt;&lt;/PortConfiguration&gt;&lt;PortConfiguration portNumber=&quot;3&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;PortConfiguration portNumber=&quot;4&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;/PortCollection&gt;" Type="String" />
       <Parameter Name="Slot" Value="1" Type="Byte" />
     </Item>
     <Item Type="Port" ID="{1052689-16729}1" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
       <Parameter Name="BackupLevel" Value="2" Type="Byte" />
       <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="CycleTimeActual" Value="98" Type="Byte" />
       <Parameter Name="CycleTimeTarget" Value="98" Type="Byte" />
       <Parameter Name="data_storage_activation_state" Value="1" Type="Byte" />
       <Parameter Name="Identification" Value="{1052689-16729}1" Type="String" />
-      <Parameter Name="InputAddressByteOffset" Value="2" Type="Byte" />
       <Parameter Name="InputAddressLength" Value="16" Type="Byte" />
       <Parameter Name="InspectLevel" Value="3" Type="Byte" />
       <Parameter Name="Mode" Value="3" Type="Byte" />
+      <Parameter Name="port_status" Value="7" Type="Byte" />
+      <Parameter Name="port_status_operate" Value="1" Type="Byte" />
+      <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
     </Item>
     <Item Type="Port" ID="{1052689-16729}2" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
-      <Parameter Name="BackupLevel" Value="0" Type="Int32" />
+      <Parameter Name="BackupLevel" Value="2" Type="Byte" />
       <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="CycleTimeActual" Value="52" Type="Byte" />
+      <Parameter Name="CycleTimeTarget" Value="50" Type="Byte" />
+      <Parameter Name="data_storage_activation_state" Value="1" Type="Byte" />
       <Parameter Name="DeviceIDFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="Identification" Value="{1052689-16729}2" Type="String" />
+      <Parameter Name="InspectLevel" Value="3" Type="Byte" />
       <Parameter Name="IOLinkVersionFromHWConfig" Value="0" Type="Int32" />
+      <Parameter Name="Mode" Value="3" Type="Byte" />
+      <Parameter Name="OutputAddressLength" Value="8" Type="Byte" />
+      <Parameter Name="port_status" Value="7" Type="Byte" />
+      <Parameter Name="port_status_operate" Value="1" Type="Byte" />
       <Parameter Name="PortNumber" Value="2" Type="Byte" />
       <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
       <Parameter Name="VendorIDFromHWConfig" Value="0" Type="Int32" />
@@ -78,6 +90,7 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
       <Parameter Name="DeviceIDFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="Identification" Value="{1052689-16729}3" Type="String" />
       <Parameter Name="IOLinkVersionFromHWConfig" Value="0" Type="Int32" />
+      <Parameter Name="port_status" Value="5" Type="Byte" />
       <Parameter Name="PortNumber" Value="3" Type="Byte" />
       <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
       <Parameter Name="VendorIDFromHWConfig" Value="0" Type="Int32" />
@@ -88,12 +101,13 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
       <Parameter Name="DeviceIDFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="Identification" Value="{1052689-16729}4" Type="String" />
       <Parameter Name="IOLinkVersionFromHWConfig" Value="0" Type="Int32" />
+      <Parameter Name="port_status" Value="5" Type="Byte" />
       <Parameter Name="PortNumber" Value="4" Type="Byte" />
       <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
       <Parameter Name="VendorIDFromHWConfig" Value="0" Type="Int32" />
     </Item>
   </Configuration>
-  <IODeviceList ItemCount="1">
+  <IODeviceList ItemCount="2">
     <IODevice Master="{1052689-16729}" Port="1">
       <Configuration DDL="/DEVICE/IO-Link/SENSOR/IFM/310_689/2023-04-20/V11/KI6000" vendorId="310" deviceId="689">
         <Information>
@@ -104,9 +118,10 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
           <Parameter Name="eventCode" Value="0" Type="Int16" />
           <Parameter Name="eventCodeText" Value="Sin fallo de funcionamiento" Type="String" />
           <Parameter Name="eventQualifier" Value="0" Type="Byte" />
-          <Parameter Name="Identification" Value="d7013ff7-cc65-45ff-97fa-80743b923c69" Type="String" />
+          <Parameter Name="Identification" Value="ba58f3f2-7d97-4cae-afec-f36b3812a509" Type="String" />
           <Parameter Name="Name" Value="KI6000" Type="String" />
-          <Parameter Name="TabIndex" Value="0" Type="Int32" />
+          <Parameter Name="ret_CheckDeviceIdentification" Value="1" Type="Byte" />
+          <Parameter Name="TabIndex" Value="1" Type="Int32" />
           <Parameter Name="V_DetailedDeviceStatusDisplay[0]" Value="Sin fallo de funcionamiento" Type="String" />
           <Parameter Name="V_DetailedDeviceStatusDisplay[1]" Value="Sin fallo de funcionamiento" Type="String" />
           <Parameter Name="V_DetailedDeviceStatusDisplay[2]" Value="Sin fallo de funcionamiento" Type="String" />
@@ -116,6 +131,37 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
           <Parameter Name="V_DetailedDeviceStatusDisplay[6]" Value="Sin fallo de funcionamiento" Type="String" />
           <Parameter Name="V_DetailedDeviceStatusDisplay[7]" Value="Sin fallo de funcionamiento" Type="String" />
           <Parameter Name="V_DetailedDeviceStatusDisplay_ArrayElement" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DirectParameters_1_11" Value="2" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_12" Value="177" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_8" Value="1" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_9" Value="54" Type="Byte" />
+          <Parameter Name="V_SystemCommand" Value="5" Type="Byte" />
+        </ParameterList>
+      </Configuration>
+    </IODevice>
+    <IODevice Master="{1052689-16729}" Port="2">
+      <Configuration DDL="/DEVICE/IO-Link/SENSOR/BALLUFF/888_330245/2019-02-15/V11/BNI007T" vendorId="888" deviceId="330245">
+        <Information>
+          <Comment />
+        </Information>
+        <ParameterList>
+          <Parameter Name="ConfigObjectType" Value="7" Type="Int32" />
+          <Parameter Name="Identification" Value="a84fa59b-a83f-4525-82a8-646829092da2" Type="String" />
+          <Parameter Name="Name" Value="BNI IOL-800-000-Z036" Type="String" />
+          <Parameter Name="ret_CheckDeviceIdentification" Value="1" Type="Byte" />
+          <Parameter Name="TabIndex" Value="1" Type="Int32" />
+          <Parameter Name="V_Brightness_1" Value="127" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_10" Value="5" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_11" Value="10" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_12" Value="5" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_8" Value="3" Type="Byte" />
+          <Parameter Name="V_DirectParameters_1_9" Value="120" Type="Byte" />
+          <Parameter Name="V_FirmwareRevision" Value="2.2 Build: 2014/05/27 07:56:54 Rev:1825 IOL: 961" Type="String" />
+          <Parameter Name="V_HardwareRevision" Value="1" Type="String" />
+          <Parameter Name="V_SafeState" Value="1" Type="Byte" />
+          <Parameter Name="V_SystemCommand" Value="130" Type="Byte" />
+          <Parameter Name="WorkingButtonDesc" Value="Factory Reset" Type="String" />
+          <Parameter Name="WorkingButtonName" Value="Restablecer configuraciones de fábrica" Type="String" />
         </ParameterList>
       </Configuration>
     </IODevice>
@@ -129,14 +175,14 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
           <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
         </Transforms>
         <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <DigestValue>21Pd358jXU9Q7dgKvuMp36lPYW8=</DigestValue>
+        <DigestValue>l9h7Ek8SF04jy86X5aLuMRsrfqQ=</DigestValue>
       </Reference>
     </SignedInfo>
-    <SignatureValue>doJo20cdnqhXpzdbMZINdG+OFEXoZu541MVGgfB14WTsbrcHc0vlFyBOqPs+WOqty2XKljZNuEw0yrqBsRgRJB6FZfu4emW4O1yPITF8QOfj7TkJwwFILuzubT1lrXU6YKXUSdyiAYJ4/O7imNNg2cLk3+YE1VDOiyOiKKhK77E=</SignatureValue>
+    <SignatureValue>O5aK9Gtq0cya8axFdJDe87LSqFjvhWh4rSXmQcnUXMYi1cerSLG1P+dSd0SmvvL6xpHhdoNmob8yABdzqRIHQOViqluwjrOuFmiol7sYKYFAz0Q5R8pXZufCloqzP5xHqACNgtRzBNYgQxSzo46//OKgO637S0eHLkpDFrmlfaM=</SignatureValue>
     <KeyInfo>
       <KeyValue>
         <RSAKeyValue>
-          <Modulus>sDN5AaPuVmff4OenbVUSHgDs61b70pq4ofyKjimtAvHddr6kasL+jEHdtZ8MJ82cCYuZdgknbW0orm8VmQ3BEB6agV3uRO7RDA+z/ctnBDS9MHGHjG9YrPm4O5gCLBMmN4NiuW7Hrn+XaPbw4p8Y1LmmsEPJCbhzThXGVvlRUp0=</Modulus>
+          <Modulus>ytaSDEyHtYRAbCCXmBLBibBmFCilyTaeXHecZmb83LxMhdBlInVPXml3W6cWxhp74GzPj7BDwcT9pFSA+PiIryghFegA9Mdh8pDDXWPlsDR+bEtS7tfN6J6itbSgKgl7ZPIIh3ZgVPy5W0jQWYSFiK8KbM0wgP88L1xJeY8WQb0=</Modulus>
           <Exponent>AQAB</Exponent>
         </RSAKeyValue>
       </KeyValue>

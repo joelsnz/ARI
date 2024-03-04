@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "4d9b5cc72005a9e0",
+            "id": "969b9292330b5bfc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Agregar periferia descentralizada.md",
+                "file": "Módulo IO-Link.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Agregar periferia descentralizada.md",
+                "file": "Módulo IO-Link.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Agregar periferia descentralizada.md",
+                "file": "Módulo IO-Link.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Agregar periferia descentralizada.md"
+                "file": "Módulo IO-Link.md"
               }
             }
           }
@@ -146,9 +146,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4d9b5cc72005a9e0",
+  "active": "969b9292330b5bfc",
   "lastOpenFiles": [
-    "Agregar periferia descentralizada.md",
+    "Mapa de Contenido.md",
+    "Módulo IO-Link.md",
+    "imagenes/combinaciones_colores.png",
+    "imagenes/trama_baliza.png",
+    "imagenes/shift_pdv1.png",
+    "imagenes/trama_sensor.png",
+    "imagenes/variables_plc.png",
+    "imagenes/direcciones_iolink.png",
+    "imagenes/informacion_puertos.png",
+    "imagenes/importar_iodd.png",
+    "Agregar periferia descentralizada al proyecto.md",
+    "Añadir módulos.md",
+    "imagenes/colores_cable.png",
+    "Módulo de salidas digitales.md",
+    "imagenes/cableado_iolink.png",
+    "Módulo de entradas digitales.md",
+    "imagenes",
+    "Nueva carpeta",
     "Welcome.md"
   ]
 }

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PCTProject Version="2.4" PlcID="{1052700-1397}" ProjectType="1" ItemCount="16" ProjectReadPath="" Protection="">
+  <!--No está permitido editar este archivo.
+La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en caso afirmativo.-->
+  <Structure>
+    <Net ID="{1052704-2087}" DDL="/NET/PROFINET/profinet/edd_net_profinet__component">
+      <RemoteDevice Reference="{1052692-2064}" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/head_module">
+        <Master ModuleReference="{1052689-2253}" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/modules/6ES7-137-6BD00-0BA0/V2.2" />
+      </RemoteDevice>
+    </Net>
+  </Structure>
+  <Configuration ItemCount="14">
+    <Item Type="Net" ID="{1052704-2087}" DDL="/NET/PROFINET/profinet/edd_net_profinet__component">
+      <Parameter Name="CommServerProgID" Value="Tci.SimaticCommunicationServerV16" Type="String" />
+      <Parameter Name="ConfigObjectType" Value="1" Type="Int32" />
+      <Parameter Name="Identification" Value="{1052704-2087}" Type="String" />
+      <Parameter Name="Name" Value="PROFINET IO-System" Type="String" />
+    </Item>
+    <Item Type="RemoteDevice" ID="{1052692-2064}" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/head_module">
+      <Parameter Name="ConfigObjectType" Value="3" Type="Int32" />
+      <Parameter Name="DeviceReference" Value="{1052692-2064}" Type="String" />
+      <Parameter Name="Identification" Value="{1052692-2064}" Type="String" />
+      <Parameter Name="Name" Value="IO-Device_1" Type="String" />
+      <Parameter Name="ObjectUUID_LocalIndex" Value="1" Type="String" />
+    </Item>
+    <Item Type="Node" ID="{1052704-2087}/{1052692-2064}">
+      <Parameter Name="ConfigObjectType" Value="2" Type="Int32" />
+      <Parameter Name="DefaultGateway" Value="0.0.0.0" Type="String" />
+      <Parameter Name="Identification" Value="{1052704-2087}/{1052692-2064}" Type="String" />
+      <Parameter Name="Name" Value="IO-Device_1" Type="String" />
+      <Parameter Name="PROFINET_IP_ADR" Value="3232299545" Type="UInt32" />
+      <Parameter Name="SubnetMask" Value="255.255.255.0" Type="String" />
+    </Item>
+    <Item Type="Master" ID="{1052689-2253}" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/modules/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="ConfigObjectType" Value="5" Type="Int32" />
+      <Parameter Name="ConfigurationWithoutPCT" Value="0" Type="Byte" />
+      <Parameter Name="dataset_1_prm_telegram" Value="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" Type="Byte[]" />
+      <Parameter Name="dataset_222_header_input_length" Value="32" Type="Byte" />
+      <Parameter Name="dataset_222_header_output_length" Value="32" Type="Byte" />
+      <Parameter Name="dataset_222_header_port_quality_offset_bit" Value="0" Type="Byte" />
+      <Parameter Name="dataset_222_header_port_quality_offset_byte" Value="255" Type="Byte" />
+      <Parameter Name="dataset_229_master_diag_status" Value="0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0;0" Type="Byte[]" />
+      <Parameter Name="dataset_231_block_1_hw_revision" Value="0" Type="UInt16" />
+      <Parameter Name="dataset_231_block_1_sw_revision" Value="0" Type="UInt32" />
+      <Parameter Name="EnablePortQualityInfo" Value="0" Type="Byte" />
+      <Parameter Name="IdentNumber" Value="0" Type="Int32" />
+      <Parameter Name="MasterFreeze" Value="0" Type="Byte" />
+      <Parameter Name="Name" Value="CM 4xIO-Link_1" Type="String" />
+      <Parameter Name="PortQualityInfoLength" Value="4" Type="Byte" />
+      <Parameter Name="ProfinetIOApi" Value="0" Type="Int32" />
+      <Parameter Name="SFMData" Value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;&lt;PortCollection xmlns=&quot;http://tempuri.org/XMLSchema.xsd&quot;&gt;&lt;PortConfiguration portNumber=&quot;1&quot; portMode=&quot;IO-Link&quot; comment=&quot;&quot;&gt;&lt;DeviceInfo vendorName=&quot;ifm electronic gmbh&quot; deviceName=&quot;KI6000&quot; productName=&quot;KI5303&quot; orderNumber=&quot;KI6000&quot; /&gt;&lt;InputAddressMapping byteOffset=&quot;0&quot; bitOffset=&quot;0&quot; bitLength=&quot;16&quot; /&gt;&lt;/PortConfiguration&gt;&lt;PortConfiguration portNumber=&quot;2&quot; portMode=&quot;IO-Link&quot; comment=&quot;&quot;&gt;&lt;DeviceInfo vendorName=&quot;Balluff&quot; deviceName=&quot;BNI IOL-800-000-Z036&quot; productName=&quot;BNI IOL-800-000-Z036&quot; orderNumber=&quot;BNI007T&quot; /&gt;&lt;OutputAddressMapping byteOffset=&quot;0&quot; bitOffset=&quot;0&quot; bitLength=&quot;8&quot; /&gt;&lt;/PortConfiguration&gt;&lt;PortConfiguration portNumber=&quot;3&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;PortConfiguration portNumber=&quot;4&quot; portMode=&quot;Deactivated&quot; comment=&quot;&quot; /&gt;&lt;/PortCollection&gt;" Type="String" />
+      <Parameter Name="Slot" Value="1" Type="Byte" />
+    </Item>
+    <Item Type="Port" ID="{1052689-2253}1" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="BackupLevel" Value="2" Type="Byte" />
+      <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="CycleTimeTarget" Value="98" Type="Byte" />
+      <Parameter Name="data_storage_activation_state" Value="1" Type="Byte" />
+      <Parameter Name="Identification" Value="{1052689-2253}1" Type="String" />
+      <Parameter Name="InputAddressLength" Value="16" Type="Byte" />
+      <Parameter Name="InspectLevel" Value="3" Type="Byte" />
+      <Parameter Name="Mode" Value="3" Type="Byte" />
+      <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
+    </Item>
+    <Item Type="Port" ID="{1052689-2253}2" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="BackupLevel" Value="2" Type="Byte" />
+      <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="CycleTimeTarget" Value="50" Type="Byte" />
+      <Parameter Name="data_storage_activation_state" Value="1" Type="Byte" />
+      <Parameter Name="Identification" Value="{1052689-2253}2" Type="String" />
+      <Parameter Name="InspectLevel" Value="3" Type="Byte" />
+      <Parameter Name="Mode" Value="3" Type="Byte" />
+      <Parameter Name="OutputAddressLength" Value="8" Type="Byte" />
+      <Parameter Name="PortNumber" Value="2" Type="Byte" />
+    </Item>
+    <Item Type="Port" ID="{1052689-2253}3" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="Identification" Value="{1052689-2253}3" Type="String" />
+      <Parameter Name="PortNumber" Value="3" Type="Byte" />
+    </Item>
+    <Item Type="Port" ID="{1052689-2253}4" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="Identification" Value="{1052689-2253}4" Type="String" />
+      <Parameter Name="PortNumber" Value="4" Type="Byte" />
+    </Item>
+  </Configuration>
+  <IODeviceList ItemCount="2">
+    <IODevice Master="{1052689-2253}" Port="1">
+      <Configuration DDL="/DEVICE/IO-Link/SENSOR/IFM/310_689/2023-04-20/V11/KI6000" vendorId="310" deviceId="689">
+        <Information>
+          <Comment />
+        </Information>
+        <ParameterList>
+          <Parameter Name="ConfigObjectType" Value="7" Type="Int32" />
+          <Parameter Name="eventCode" Value="0" Type="Int16" />
+          <Parameter Name="eventCodeText" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="eventQualifier" Value="0" Type="Byte" />
+          <Parameter Name="Identification" Value="7e26eec7-0b57-47e5-b38c-4da7b238df2b" Type="String" />
+          <Parameter Name="Name" Value="KI6000" Type="String" />
+          <Parameter Name="TabIndex" Value="1" Type="Int32" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[0]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[1]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[2]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[3]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[4]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[5]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[6]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay[7]" Value="Sin fallo de funcionamiento" Type="String" />
+          <Parameter Name="V_DetailedDeviceStatusDisplay_ArrayElement" Value="Sin fallo de funcionamiento" Type="String" />
+        </ParameterList>
+      </Configuration>
+    </IODevice>
+    <IODevice Master="{1052689-2253}" Port="2">
+      <Configuration DDL="/DEVICE/IO-Link/SENSOR/BALLUFF/888_330245/2019-02-15/V11/BNI007T" vendorId="888" deviceId="330245">
+        <Information>
+          <Comment />
+        </Information>
+        <ParameterList>
+          <Parameter Name="ConfigObjectType" Value="7" Type="Int32" />
+          <Parameter Name="Identification" Value="3c504bd4-348a-454e-9cab-05f92716a153" Type="String" />
+          <Parameter Name="Name" Value="BNI IOL-800-000-Z036" Type="String" />
+          <Parameter Name="TabIndex" Value="0" Type="Int32" />
+        </ParameterList>
+      </Configuration>
+    </IODevice>
+  </IODeviceList>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>YnH13NwpYLFG2Yfir5GmvBfOmJw=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>uY981o7LA9VW3ubRkmJ4TXxo/i4ktET07GtFNQWZfPHMaoydWmzZeU2Ht5Ueal1BuZEOgZHz3lm2qiQE2n3mx6zpTO8xq0TYxUPVvwCPCV0kroCmqT6hjzsqTZpk11+wgy9YFd5fSg3FEwfyYC7nGHkE9HC2MCAQpw4ud75sIBE=</SignatureValue>
+    <KeyInfo>
+      <KeyValue>
+        <RSAKeyValue>
+          <Modulus>yT5DcjHFp35CcAgiR5+tG+gZRNjfUwq64I0/I7Fx2OPTa9Upn+SoTs3rJ7faN60XLFG1KVLxotZWX3Pn9Vnm70QB4M80dz5YHk+3gAemCfDnQGx0tb8L3aZrFInyFgwyTUSQBgZKZN+qGHXSl+0olO09V7oD9yqvrLTzqvRcKyk=</Modulus>
+          <Exponent>AQAB</Exponent>
+        </RSAKeyValue>
+      </KeyValue>
+    </KeyInfo>
+  </Signature>
+</PCTProject>

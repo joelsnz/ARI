@@ -1,0 +1,5 @@
+1. [[Agregar periferia descentralizada al proyecto]]
+2. [[Añadir módulos]]
+3. [[Módulo de entradas digitales]]
+4. [[Módulo de salidas digitales]]
+5. [[Módulo IO-Link]]

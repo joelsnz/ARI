@@ -74,14 +74,24 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
       <Parameter Name="PortNumber" Value="2" Type="Byte" />
     </Item>
     <Item Type="Port" ID="{1052689-2253}3" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="BackupLevel" Value="0" Type="Int32" />
       <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="DeviceIDFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="Identification" Value="{1052689-2253}3" Type="String" />
+      <Parameter Name="IOLinkVersionFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="PortNumber" Value="3" Type="Byte" />
+      <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
+      <Parameter Name="VendorIDFromHWConfig" Value="0" Type="Int32" />
     </Item>
     <Item Type="Port" ID="{1052689-2253}4" DDL="/DEVICE/IO-Link/REMOTEIO/SIEMENS/pno_io-link_master/ports/6ES7-137-6BD00-0BA0/V2.2">
+      <Parameter Name="BackupLevel" Value="0" Type="Int32" />
       <Parameter Name="ConfigObjectType" Value="6" Type="Int32" />
+      <Parameter Name="DeviceIDFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="Identification" Value="{1052689-2253}4" Type="String" />
+      <Parameter Name="IOLinkVersionFromHWConfig" Value="0" Type="Int32" />
       <Parameter Name="PortNumber" Value="4" Type="Byte" />
+      <Parameter Name="QualityAddressFromFW" Value="0" Type="Int32" />
+      <Parameter Name="VendorIDFromHWConfig" Value="0" Type="Int32" />
     </Item>
   </Configuration>
   <IODeviceList ItemCount="2">
@@ -133,14 +143,14 @@ La aplicación comprueba si el archivo se ha editado y deja de utilizarlo en cas
           <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
         </Transforms>
         <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <DigestValue>YnH13NwpYLFG2Yfir5GmvBfOmJw=</DigestValue>
+        <DigestValue>SAPN9aIO0OXor09Iq1Dnks8ZgWs=</DigestValue>
       </Reference>
     </SignedInfo>
-    <SignatureValue>uY981o7LA9VW3ubRkmJ4TXxo/i4ktET07GtFNQWZfPHMaoydWmzZeU2Ht5Ueal1BuZEOgZHz3lm2qiQE2n3mx6zpTO8xq0TYxUPVvwCPCV0kroCmqT6hjzsqTZpk11+wgy9YFd5fSg3FEwfyYC7nGHkE9HC2MCAQpw4ud75sIBE=</SignatureValue>
+    <SignatureValue>le6PmUZS6VmVgjGXs92lhubaR6UXkyCnftiaguPeLR+eas2Dszf/hKCcCQbRv3fhdLrVMy7M7MMKYltzJ4/QFTyGZq82gOpoBaZlJ9SF9FP04TGMIv9e/Nls2BqrE8BTDp5nkCQYHUDOIDHn49A9uePcli9vnq69suKykIeZJuk=</SignatureValue>
     <KeyInfo>
       <KeyValue>
         <RSAKeyValue>
-          <Modulus>yT5DcjHFp35CcAgiR5+tG+gZRNjfUwq64I0/I7Fx2OPTa9Upn+SoTs3rJ7faN60XLFG1KVLxotZWX3Pn9Vnm70QB4M80dz5YHk+3gAemCfDnQGx0tb8L3aZrFInyFgwyTUSQBgZKZN+qGHXSl+0olO09V7oD9yqvrLTzqvRcKyk=</Modulus>
+          <Modulus>zDpz/LRpVokKrq2NXNV9DELHqeZvztVYTac04Z4nYMykefcaeXO2PKgMeipgnEfzYBUnAT5xM1F+fKJIHc34YC8gITRSI6vmYDCr/+jMqqghCHW/C2L+nThptGZTABGjORHOW/qz36gYGil1EPNBW6YpnOwuH8BzS7GXHHEauSk=</Modulus>
           <Exponent>AQAB</Exponent>
         </RSAKeyValue>
       </KeyValue>
